@@ -1,0 +1,3403 @@
+{
+  "summary": {
+    "total_invoices": 21,
+    "pass": 19,
+    "fail": 2,
+    "review": 0,
+    "generated_at": "2026-01-15T08:30:48.220011"
+  },
+  "invoices": [
+    {
+      "invoice_ref": "test_invoices.json#0",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.183239",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#1",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.184496",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#2",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.186779",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#3",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.188311",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#4",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.190121",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#5",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.192125",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#6",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Insufficient data"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Insufficient data"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 15
+      },
+      "generated_at": "2026-01-15T08:30:48.192125",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#7",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.194130",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#8",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.197114",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#9",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.197114",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#10",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.200643",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#11",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.202987",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#12",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.204067",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#13",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": "No GST applied"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 15
+      },
+      "generated_at": "2026-01-15T08:30:48.206407",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#14",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.207604",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#15",
+      "final_status": "FAIL",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "vendor_gstin invalid"
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "vendor_gstin invalid"
+        }
+      ],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 13,
+        "HIGH": 1,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.210025",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#16",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.211076",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#17",
+      "final_status": "FAIL",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Total less than taxable"
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Total less than taxable"
+        }
+      ],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 13,
+        "HIGH": 1,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.212585",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#18",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "REVIEW",
+          "severity": "LOW",
+          "details": "Invoice total missing"
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Insufficient data"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "REVIEW",
+          "severity": "LOW",
+          "details": "Invoice total missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Insufficient data"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 15
+      },
+      "generated_at": "2026-01-15T08:30:48.213800",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#19",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.217415",
+      "resolver_advice": null
+    },
+    {
+      "invoice_ref": "test_invoices.json#20",
+      "final_status": "PASS",
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item amount calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Rounding rules compliance",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        },
+        {
+          "checkpoint": "Invoice total validation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "failed_checks": [],
+      "review_checks": [
+        {
+          "checkpoint": "GST rate validation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "HSN/SAC missing"
+        }
+      ],
+      "na_checks": [
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Subtotal not provided"
+        },
+        {
+          "checkpoint": "Tax calculation accuracy",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Tax breakup not available"
+        },
+        {
+          "checkpoint": "Discount application",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No discount applicable"
+        },
+        {
+          "checkpoint": "Foreign currency conversion",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Invoice in INR"
+        },
+        {
+          "checkpoint": "Advance adjustment reconciliation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "No advance adjustment"
+        },
+        {
+          "checkpoint": "Credit/Debit note linkage",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Not a credit/debit note"
+        },
+        {
+          "checkpoint": "Partial payment calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "Single payment assumed"
+        },
+        {
+          "checkpoint": "TDS calculation",
+          "status": "NA",
+          "severity": "LOW",
+          "details": "TDS not applicable"
+        }
+      ],
+      "severity_summary": {
+        "LOW": 14,
+        "MEDIUM": 1
+      },
+      "generated_at": "2026-01-15T08:30:48.220011",
+      "resolver_advice": null
+    }
+  ]
+}

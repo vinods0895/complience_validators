@@ -1,0 +1,1619 @@
+{
+  "test_invoices.json#0": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#1": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "5.0%"
+    }
+  ],
+  "test_invoices.json#2": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#3": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "5.0%"
+    }
+  ],
+  "test_invoices.json#4": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#5": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#6": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "REVIEW",
+      "details": ""
+    }
+  ],
+  "test_invoices.json#7": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#8": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#9": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#10": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#11": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#12": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "12.0%"
+    }
+  ],
+  "test_invoices.json#13": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "0.0%"
+    }
+  ],
+  "test_invoices.json#14": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#15": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "FAIL",
+      "details": "vendor_gstin invalid"
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#16": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "12.0%"
+    }
+  ],
+  "test_invoices.json#17": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#18": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "REVIEW",
+      "details": ""
+    }
+  ],
+  "test_invoices.json#19": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ],
+  "test_invoices.json#20": [
+    {
+      "checkpoint": "Invoice number present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice date present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GSTIN format validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C1 Line item qty\u00d7rate=amount",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C2 Subtotal check",
+      "status": "REVIEW",
+      "details": "Subtotal not provided"
+    },
+    {
+      "checkpoint": "C3 Tax accuracy",
+      "status": "REVIEW",
+      "details": "Insufficient tax data"
+    },
+    {
+      "checkpoint": "C4 Discount validation",
+      "status": "REVIEW",
+      "details": "No discount field"
+    },
+    {
+      "checkpoint": "C5 Rounding compliance",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C6 FX conversion",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "C7 Advance adjustment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C8 Credit/Debit linkage",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C9 Partial payment",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "C10 TDS calculation",
+      "status": "REVIEW",
+      "details": ""
+    },
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "checkpoint": "GST rate validation",
+      "status": "FAIL",
+      "details": "18.0%"
+    }
+  ]
+}
