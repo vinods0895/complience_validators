@@ -17,7 +17,7 @@ class InvoiceModel(BaseModel):
 
     invoice_id: Optional[str] = None
 
-    # 👇 KEY FIX
+   
     invoice_no: Optional[str] = Field(
         default=None,
         alias="invoice_number"
