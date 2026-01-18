@@ -46,11 +46,10 @@ def print_invoice_context(invoice: InvoiceModel):
 
     print("\n🏢 VENDOR DETAILS")
     if vendor:
-        v = vendor.model_dump()  # ✅ SAFE for printing
+        v = vendor.model_dump()
         print(f"Vendor Name    : {v.get('name')}")
         print(f"Vendor GSTIN   : {v.get('gstin')}")
 
-        # State may not exist directly
         if "state" in v:
             print(f"Vendor State   : {v.get('state')}")
         elif "state_code" in v:
@@ -82,6 +81,18 @@ def print_invoice_context(invoice: InvoiceModel):
     print("-" * 50)
 
 
+# -------------------------------------------------
+# Save report as JSON
+# -------------------------------------------------
+def save_result_as_json(invoice_id: str, report: dict):
+    output_dir = Path("outputs")
+    output_dir.mkdir(exist_ok=True)
+
+    output_file = output_dir / f"{invoice_id.replace('#', '_')}.json"
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+
+    print(f"📄 JSON report saved to: {output_file}")
 
 
 # -------------------------------------------------
@@ -95,9 +106,9 @@ def main():
     print(f"📁 Data path    : {DATA_PATH}")
 
     # -------------------------------
-    # Initialize agents (UPDATED)
+    # Initialize agents
     # -------------------------------
-    validator = ValidatorAgent()  # ✅ No master data paths anymore
+    validator = ValidatorAgent()
     resolver = ResolverAgent(llm_backend="openrouter_free")
     reporter = ReporterAgent()
 
@@ -113,10 +124,10 @@ def main():
     for filename, invoice in invoices:
         print(f"\n🔍 VALIDATING: {filename}")
 
-        # 🔹 Print invoice context
+        # Print invoice context
         print_invoice_context(invoice)
 
-        # 🔹 Validation
+        # Validation
         validation_result = validator.validate_invoice(invoice)
 
         print("\n🧪 VALIDATION RESULTS")
@@ -158,6 +169,9 @@ def main():
             resolver_result=resolver_result,
         )
 
+        # ✅ SAVE JSON REPORT
+        save_result_as_json(filename, report)
+
         print("\n📊 FINAL REPORT")
         print("-" * 50)
         print(f"Decision           : {report['final_decision']}")
@@ -170,8 +184,5 @@ def main():
     print("\n✅ COMPLIANCE VALIDATION COMPLETED SUCCESSFULLY")
 
 
-# -------------------------------------------------
-# Entry point
-# -------------------------------------------------
 if __name__ == "__main__":
     main()

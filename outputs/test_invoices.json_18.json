@@ -1,0 +1,24 @@
+{
+  "invoice_id": "test_invoices.json#18",
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "Invoice is largely compliant with minor informational gaps that do not block processing.",
+  "key_findings": [
+    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B264F50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+    "Subtotal consistency: Subtotal missing",
+    "Invoice total validation: Total missing",
+    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B266570>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+    "GST rate validation: Insufficient data",
+    "Company policy check: Total missing"
+  ],
+  "recommended_action": "Invoice can be processed without restrictions.",
+  "audit_notes": [
+    "REVIEW: GSTIN active status",
+    "NA: Subtotal consistency",
+    "REVIEW: Invoice total validation",
+    "REVIEW: HSN/SAC validation",
+    "NA: GST rate validation",
+    "NA: Company policy check"
+  ],
+  "confidence_score": 0.95
+}

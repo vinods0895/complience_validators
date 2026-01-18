@@ -1,0 +1,23 @@
+{
+  "invoice_id": "test_invoices.json#15",
+  "final_decision": "FAIL",
+  "risk_level": "HIGH",
+  "summary": "Invoice has critical compliance issues and cannot be processed without correction.",
+  "key_findings": [
+    "GSTIN format validation: Invalid GSTIN format",
+    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B26C9E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B265FA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+    "GST rate validation: GST rate service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B265EB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+    "Company policy check: Policy service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B267DA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  ],
+  "recommended_action": "Reject invoice and request corrected version from vendor.",
+  "audit_notes": [
+    "FAIL: GSTIN format validation (HIGH)",
+    "REVIEW: GSTIN active status",
+    "REVIEW: HSN/SAC validation",
+    "REVIEW: GST rate validation",
+    "REVIEW: Company policy check"
+  ],
+  "confidence_score": 0.3,
+  "llm_reasoning": "1. This is a documentation gap as the GSTIN format validation has failed, but it does not necessarily mean it is a non-compliant invoice. The GSTIN may be incorrectly formatted, and it should be verified with the vendor to ensure compliance.\n\n2. The invoice cannot be accepted without clarification regarding the GSTIN and the other validation issues. It is recommended to contact the vendor to confirm the correct GSTIN and other relevant details to ensure compliance with the company's GST policies.\n\n3. The next recommended action is to reach out to the vendor to clarify the GSTIN and other validation issues. This can be done by contacting the vendor directly or through their customer support channel. Once the clarification is received, the invoice can be re-evaluated for compliance."
+}
