@@ -160,16 +160,13 @@ def main():
             )
             print(resolver_result.get("llm_reasoning", "No reasoning returned"))
 
-        # -------------------------------
-        # Reporter
-        # -------------------------------
+        
         report = reporter.generate_report(
             invoice_id=filename,
             validation_result=validation_result,
             resolver_result=resolver_result,
         )
 
-        # ✅ SAVE JSON REPORT
         save_result_as_json(filename, report)
 
         print("\n📊 FINAL REPORT")
