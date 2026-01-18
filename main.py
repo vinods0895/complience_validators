@@ -7,9 +7,7 @@ from Agents.resolver import ResolverAgent
 from Agents.reporter import ReporterAgent
 
 
-# -------------------------------------------------
-# Normalize raw invoice JSON into InvoiceModel shape
-# -------------------------------------------------
+
 def normalize_invoice(raw: dict) -> dict:
     return {
         "invoice_id": raw.get("invoice_id"),
@@ -51,9 +49,7 @@ def load_invoices(invoices_path: Path):
     return invoices
 
 
-# -------------------------------------------------
-# Main
-# -------------------------------------------------
+
 def main():
     PROJECT_ROOT = Path(__file__).resolve().parent
     DATA_PATH = PROJECT_ROOT / "data"
@@ -104,9 +100,9 @@ def main():
         final_status = validation_result["summary"]["final_status"]
         print(f"\n📌 FINAL DECISION: {final_status}")
 
-        # -------------------------------
+       
         # Resolver (LLM reasoning)
-        # -------------------------------
+       
         resolver_result = None
         if final_status in ("FAIL", "REVIEW"):
             print("\n🧠 LLM Reasoning:")
@@ -116,9 +112,9 @@ def main():
         )
             print(resolver_result.get("llm_reasoning", "No reasoning returned"))
 
-        # -------------------------------
+        
         # Reporter
-        # -------------------------------
+      
         report = reporter.generate_report(
             invoice_id=filename,
             validation_result=validation_result,

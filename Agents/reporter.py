@@ -7,9 +7,7 @@ class ReporterAgent:
     def __init__(self):
         pass
 
-    # -------------------------------------------------
-    # Public API
-    # -------------------------------------------------
+    
     def generate_report(
         self,
         invoice_id: str,
@@ -50,9 +48,7 @@ class ReporterAgent:
 
         return report
 
-    # -------------------------------------------------
-    # Helpers
-    # -------------------------------------------------
+    
     def _determine_risk(self, final_status: str, failed: List[Dict]) -> str:
         if final_status == "FAIL":
             return "HIGH"
@@ -149,4 +145,4 @@ class ReporterAgent:
             return 0.30
         if final_status == "REVIEW":
             return round(0.70 - (len(warnings) * 0.05), 2)
-        return 0.95
+        return 0.95 

@@ -35,18 +35,14 @@ Do NOT mention system or technical errors.
 Respond in plain business English.
 """)
 
-    # -------------------------------------------------
-    # Decision gate
-    # -------------------------------------------------
+    
     def should_resolve(self, validation_result: Dict) -> bool:
         """
         Decide if LLM reasoning is needed.
         """
         return validation_result["summary"]["final_status"] in ("FAIL", "REVIEW")
 
-    # -------------------------------------------------
-    # LLM reasoning
-    # -------------------------------------------------
+   
     def resolve(
         self,
         invoice_id: str,
