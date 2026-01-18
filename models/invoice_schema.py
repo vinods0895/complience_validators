@@ -9,13 +9,21 @@ class InvoiceDetails(BaseModel):
     invoice_id: Optional[str] = Field(
         default=None, description="Unique identifier for the invoice"
     )
-    invoice_no: Optional[str] = Field(
+    invoice_number: Optional[str] = Field(   # ✅ renamed to match JSON
         default=None, description="Invoice number"
     )
     invoice_date: Optional[str] = Field(
         default=None, description="Invoice date"
     )
     due_date: Optional[str] = None
+
+    subtotal: Optional[float] = Field(       # ✅ added
+        default=None, description="Subtotal before taxes"
+    )
+
+    total_tax: Optional[float] = Field(      # ✅ added
+        default=None, description="Total tax amount"
+    )
 
     # ✅ Allow negative totals (credit notes / adjustments)
     total_amount: Optional[float] = Field(
@@ -24,11 +32,19 @@ class InvoiceDetails(BaseModel):
 
     currency: Optional[str] = "INR"
 
+    irn: Optional[str] = None                # ✅ added
+    irn_date: Optional[str] = None           # ✅ added
+    qr_code_present: Optional[bool] = None   # ✅ added
+    payment_terms: Optional[str] = None      # ✅ added
+    po_reference: Optional[str] = None       # ✅ added
+    notes: Optional[str] = None              # ✅ added
+
 
 # -------------------------------------------------
 # Vendor Details
 # -------------------------------------------------
 class VendorDetails(BaseModel):
+    name: Optional[str] = None               # ✅ added to match JSON
     vendor_id: Optional[str] = None
     legal_name: Optional[str] = None
     trade_name: Optional[str] = None
@@ -52,8 +68,10 @@ class VendorDetails(BaseModel):
 # Customer Details
 # -------------------------------------------------
 class CustomerDetails(BaseModel):
+    name: Optional[str] = None               # ✅ added to match JSON
     customer_name: Optional[str] = None
     gstin: Optional[str] = None
+    address: Optional[str] = None            # ✅ added
 
 
 # -------------------------------------------------
@@ -65,12 +83,15 @@ class GSTDetails(BaseModel):
         None, description="Taxable value (can be negative for credit notes)"
     )
 
+    cgst_rate: Optional[float] = None        # ✅ added
     cgst: Optional[float] = Field(
         None, description="CGST amount"
     )
+    sgst_rate: Optional[float] = None        # ✅ added
     sgst: Optional[float] = Field(
         None, description="SGST amount"
     )
+    igst_rate: Optional[float] = None        # ✅ added
     igst: Optional[float] = Field(
         None, description="IGST amount"
     )
@@ -81,11 +102,12 @@ class GSTDetails(BaseModel):
 # -------------------------------------------------
 class LineItem(BaseModel):
     description: Optional[str] = None
-    hsn: Optional[str] = None
+    hsn_sac: Optional[str] = None            # ✅ renamed to match JSON
 
     # Quantity & rate should not be negative
     quantity: Optional[float] = Field(None, ge=0)
-    unit_price: Optional[float] = Field(None, ge=0)
+    unit: Optional[str] = None               # ✅ added
+    rate: Optional[float] = Field(None, ge=0) # ✅ renamed from unit_price
 
     cgst_rate: Optional[float] = Field(None, ge=0)
     sgst_rate: Optional[float] = Field(None, ge=0)

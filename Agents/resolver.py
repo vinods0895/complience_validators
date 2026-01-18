@@ -35,23 +35,16 @@ Do NOT mention system or technical errors.
 Respond in plain business English.
 """)
 
-    
     def should_resolve(self, validation_result: Dict) -> bool:
         """
         Decide if LLM reasoning is needed.
         """
         return validation_result["summary"]["final_status"] in ("FAIL", "REVIEW")
 
-   
-    def resolve(
-        self,
-        invoice_id: str,
-        validation_result: Dict
-    ) -> Dict[str, Any]:
+    def resolve(self, invoice_id: str, validation_result: Dict) -> Dict[str, Any]:
         """
         Generate human-readable reasoning using LLM.
         """
-
         failed_checks: List[Dict] = [
             c for c in validation_result["checks"]
             if c["status"] in ("FAIL", "REVIEW")
@@ -70,14 +63,19 @@ Respond in plain business English.
         )
 
         # Format prompt with template
-        prompt = self.prompt.format(
+        prompt_str = self.prompt.format_prompt(
             invoice_id=invoice_id,
             issues_text=issues_text
-        )
+        ).to_string()
 
         try:
-            # Call the selected LLM backend
-            response = self.llm(prompt)
+            # Safe backend call
+            if callable(self.llm):
+                response = self.llm(prompt_str)
+            elif hasattr(self.llm, "predict"):
+                response = self.llm.predict(prompt_str)
+            else:
+                raise TypeError("Unsupported LLM client type")
 
             return {
                 "llm_reasoning": response.strip(),
@@ -94,3 +92,5 @@ Respond in plain business English.
                 "resolution_type": "LLM_FALLBACK",
                 "error": str(e),
             }
+# GST_API_URL = "https://api.example.com/gst/validate"  # Example placeholder
+
