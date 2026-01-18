@@ -7,27 +7,6 @@ from Agents.resolver import ResolverAgent
 from Agents.reporter import ReporterAgent
 
 
-
-def normalize_invoice(raw: dict) -> dict:
-    return {
-        "invoice_id": raw.get("invoice_id"),
-        "invoice_no": raw.get("invoice_number"),
-        "invoice_date": raw.get("invoice_date"),
-        "vendor_gstin": (raw.get("vendor") or {}).get("gstin"),
-        "buyer_gstin": (raw.get("buyer") or {}).get("gstin"),
-        "items": [
-            {
-                "description": item.get("description"),
-                "quantity": item.get("quantity"),
-                "unit_price": item.get("rate"),
-                "line_total": item.get("amount"),
-            }
-            for item in raw.get("line_items", [])
-        ],
-        "total": raw.get("total_amount"),
-    }
-
-
 # -------------------------------------------------
 # Load invoices
 # -------------------------------------------------
@@ -40,38 +19,85 @@ def load_invoices(invoices_path: Path):
 
         if isinstance(data, list):
             for idx, raw_inv in enumerate(data):
-                invoice = InvoiceModel(**normalize_invoice(raw_inv))
+                invoice = InvoiceModel(**raw_inv)
                 invoices.append((f"{file.name}#{idx}", invoice))
         else:
-            invoice = InvoiceModel(**normalize_invoice(data))
+            invoice = InvoiceModel(**data)
             invoices.append((file.name, invoice))
 
     return invoices
 
 
+# -------------------------------------------------
+# Pretty print invoice context
+# -------------------------------------------------
+def print_invoice_context(invoice: InvoiceModel):
+    vendor = invoice.vendor
+    buyer = invoice.buyer
 
+    print("\n📄 INVOICE DETAILS")
+    print("-" * 50)
+    print(f"Invoice Number : {invoice.invoice_number}")
+    print(f"Invoice Date   : {invoice.invoice_date}")
+    print(f"Currency       : {invoice.currency}")
+    print(f"Subtotal       : {invoice.subtotal}")
+    print(f"Total Tax      : {invoice.total_tax}")
+    print(f"Total Amount   : {invoice.total_amount}")
+
+    print("\n🏢 VENDOR DETAILS")
+    if vendor:
+        v = vendor.model_dump()  # ✅ SAFE for printing
+        print(f"Vendor Name    : {v.get('name')}")
+        print(f"Vendor GSTIN   : {v.get('gstin')}")
+
+        # State may not exist directly
+        if "state" in v:
+            print(f"Vendor State   : {v.get('state')}")
+        elif "state_code" in v:
+            print(f"Vendor State Code : {v.get('state_code')}")
+        elif v.get("gstin"):
+            print(f"Vendor State (from GSTIN) : {v['gstin'][:2]}")
+        else:
+            print("Vendor State   : Not available")
+    else:
+        print("Vendor details missing")
+
+    print("\n🏬 BUYER DETAILS")
+    if buyer:
+        b = buyer.model_dump()
+        print(f"Buyer Name     : {b.get('name')}")
+        print(f"Buyer GSTIN    : {b.get('gstin')}")
+
+        if "state" in b:
+            print(f"Buyer State    : {b.get('state')}")
+        elif "state_code" in b:
+            print(f"Buyer State Code : {b.get('state_code')}")
+        elif b.get("gstin"):
+            print(f"Buyer State (from GSTIN) : {b['gstin'][:2]}")
+        else:
+            print("Buyer State    : Not available")
+    else:
+        print("Buyer details missing")
+
+    print("-" * 50)
+
+
+
+
+# -------------------------------------------------
+# Main pipeline
+# -------------------------------------------------
 def main():
     PROJECT_ROOT = Path(__file__).resolve().parent
     DATA_PATH = PROJECT_ROOT / "data"
-    MASTER_DATA = DATA_PATH / "master_data"
 
-    print(f"📁 Project root: {PROJECT_ROOT}")
-    print(f"📁 Data path: {DATA_PATH}")
-    print(f"📁 Master data path: {MASTER_DATA}")
-    print(f"📁 Historical decisions path: {DATA_PATH / 'historical_decisions.jsonl'}")
+    print(f"📁 Project root : {PROJECT_ROOT}")
+    print(f"📁 Data path    : {DATA_PATH}")
 
     # -------------------------------
-    # Initialize agents
+    # Initialize agents (UPDATED)
     # -------------------------------
-    validator = ValidatorAgent(
-        vendor_registry_path=str(MASTER_DATA / "vendor_registry.json"),
-        gst_rates_path=str(MASTER_DATA / "gst_rates_schedule.csv"),
-        hsn_codes_path=str(MASTER_DATA / "hsn_sac_codes.json"),
-        tds_sections_path=str(MASTER_DATA / "tds_sections.json"),
-        company_policy_path=str(MASTER_DATA / "company_policy.yaml"),
-        historical_decisions_path=str(DATA_PATH / "historical_decisions.jsonl"),
-    )
-
+    validator = ValidatorAgent()  # ✅ No master data paths anymore
     resolver = ResolverAgent(llm_backend="openrouter_free")
     reporter = ReporterAgent()
 
@@ -85,51 +111,67 @@ def main():
     # Run pipeline
     # -------------------------------
     for filename, invoice in invoices:
-        print(f"\n🔍 Validating {filename}...")
+        print(f"\n🔍 VALIDATING: {filename}")
 
+        # 🔹 Print invoice context
+        print_invoice_context(invoice)
+
+        # 🔹 Validation
         validation_result = validator.validate_invoice(invoice)
 
+        print("\n🧪 VALIDATION RESULTS")
         for check in validation_result["checks"]:
             icon = (
                 "✅" if check["status"] == "PASS"
                 else "➖" if check["status"] in ("NA", "REVIEW")
                 else "❌"
             )
-            print(f"{icon} {check['checkpoint']}: {check['details'] or 'OK'}")
+
+            details = check["details"] or "OK"
+            severity = check.get("severity", "LOW")
+
+            print(
+                f"{icon} [{severity}] {check['checkpoint']} → {check['status']} | {details}"
+            )
 
         final_status = validation_result["summary"]["final_status"]
-        print(f"\n📌 FINAL DECISION: {final_status}")
+        print(f"\n📌 FINAL VALIDATION STATUS: {final_status}")
 
-       
+        # -------------------------------
         # Resolver (LLM reasoning)
-       
+        # -------------------------------
         resolver_result = None
         if final_status in ("FAIL", "REVIEW"):
-            print("\n🧠 LLM Reasoning:")
+            print("\n🧠 LLM REASONING")
             resolver_result = resolver.resolve(
-            invoice_id=filename,
-            validation_result=validation_result
-        )
+                invoice_id=filename,
+                validation_result=validation_result,
+            )
             print(resolver_result.get("llm_reasoning", "No reasoning returned"))
 
-        
+        # -------------------------------
         # Reporter
-      
+        # -------------------------------
         report = reporter.generate_report(
             invoice_id=filename,
             validation_result=validation_result,
             resolver_result=resolver_result,
         )
 
-        print("\n📄 REPORT SUMMARY")
+        print("\n📊 FINAL REPORT")
+        print("-" * 50)
         print(f"Decision           : {report['final_decision']}")
         print(f"Risk Level         : {report['risk_level']}")
         print(f"Summary            : {report['summary']}")
         print(f"Recommended Action : {report['recommended_action']}")
         print(f"Confidence Score   : {report['confidence_score']}")
+        print("-" * 50)
 
-    print("\n✅ Compliance validation completed.")
+    print("\n✅ COMPLIANCE VALIDATION COMPLETED SUCCESSFULLY")
 
 
+# -------------------------------------------------
+# Entry point
+# -------------------------------------------------
 if __name__ == "__main__":
     main()
