@@ -1,20 +1,14 @@
 {
   "invoice_id": "test_invoices.json#5",
-  "final_decision": "PASS",
-  "risk_level": "LOW",
-  "summary": "Invoice is largely compliant with minor informational gaps that do not block processing.",
+  "final_decision": "FAIL",
+  "risk_level": "HIGH",
+  "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B2667E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B265BE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "GST rate validation: GST rate service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B265040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "Company policy check: Policy service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B264050>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    "Invalid HSN/SAC 995411",
+    "GST rate not found for 995411"
   ],
-  "recommended_action": "Invoice can be processed without restrictions.",
-  "audit_notes": [
-    "REVIEW: GSTIN active status",
-    "REVIEW: HSN/SAC validation",
-    "REVIEW: GST rate validation",
-    "REVIEW: Company policy check"
-  ],
-  "confidence_score": 0.95
+  "recommended_action": "Contact supplier for correct HSN/SAC code and applicable GST rate",
+  "audit_notes": [],
+  "confidence_score": 0.9,
+  "llm_reasoning": "1. This is a hard compliance violation as the invoice does not adhere to the mandatory HSN/SAC and GST rate requirements.\n2. The invoice cannot be accepted without clarification as the incorrect HSN/SAC and missing GST rate information pose a risk to accurate GST reporting and potential non-compliance.\n3. The recommended next action is to contact the supplier and request them to provide the correct HSN/SAC code and applicable GST rate for the goods or services provided in the invoice. Once this information is obtained, the invoice can be updated and processed accordingly."
 }

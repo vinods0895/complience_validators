@@ -32,19 +32,19 @@ class InvoiceDetails(BaseModel):
 
     currency: Optional[str] = "INR"
 
-    irn: Optional[str] = None                # ✅ added
-    irn_date: Optional[str] = None           # ✅ added
-    qr_code_present: Optional[bool] = None   # ✅ added
-    payment_terms: Optional[str] = None      # ✅ added
-    po_reference: Optional[str] = None       # ✅ added
-    notes: Optional[str] = None              # ✅ added
+    irn: Optional[str] = None                
+    irn_date: Optional[str] = None           
+    qr_code_present: Optional[bool] = None   
+    payment_terms: Optional[str] = None      
+    po_reference: Optional[str] = None       
+    notes: Optional[str] = None              
 
 
 # -------------------------------------------------
 # Vendor Details
 # -------------------------------------------------
 class VendorDetails(BaseModel):
-    name: Optional[str] = None               # ✅ added to match JSON
+    name: Optional[str] = None               
     vendor_id: Optional[str] = None
     legal_name: Optional[str] = None
     trade_name: Optional[str] = None
@@ -68,10 +68,10 @@ class VendorDetails(BaseModel):
 # Customer Details
 # -------------------------------------------------
 class CustomerDetails(BaseModel):
-    name: Optional[str] = None               # ✅ added to match JSON
+    name: Optional[str] = None             
     customer_name: Optional[str] = None
     gstin: Optional[str] = None
-    address: Optional[str] = None            # ✅ added
+    address: Optional[str] = None           
 
 
 # -------------------------------------------------
@@ -83,15 +83,15 @@ class GSTDetails(BaseModel):
         None, description="Taxable value (can be negative for credit notes)"
     )
 
-    cgst_rate: Optional[float] = None        # ✅ added
+    cgst_rate: Optional[float] = None      
     cgst: Optional[float] = Field(
         None, description="CGST amount"
     )
-    sgst_rate: Optional[float] = None        # ✅ added
+    sgst_rate: Optional[float] = None        
     sgst: Optional[float] = Field(
         None, description="SGST amount"
     )
-    igst_rate: Optional[float] = None        # ✅ added
+    igst_rate: Optional[float] = None       
     igst: Optional[float] = Field(
         None, description="IGST amount"
     )
@@ -102,12 +102,12 @@ class GSTDetails(BaseModel):
 # -------------------------------------------------
 class LineItem(BaseModel):
     description: Optional[str] = None
-    hsn_sac: Optional[str] = None            # ✅ renamed to match JSON
+    hsn_sac: Optional[str] = None            
 
     # Quantity & rate should not be negative
     quantity: Optional[float] = Field(None, ge=0)
-    unit: Optional[str] = None               # ✅ added
-    rate: Optional[float] = Field(None, ge=0) # ✅ renamed from unit_price
+    unit: Optional[str] = None               
+    rate: Optional[float] = Field(None, ge=0) 
 
     cgst_rate: Optional[float] = Field(None, ge=0)
     sgst_rate: Optional[float] = Field(None, ge=0)

@@ -1,24 +1,21 @@
 {
   "invoice_id": "test_invoices.json#18",
-  "final_decision": "PASS",
-  "risk_level": "LOW",
-  "summary": "Invoice is largely compliant with minor informational gaps that do not block processing.",
+  "final_decision": "FAIL",
+  "risk_level": "HIGH",
+  "summary": "The invoice with ID 'test_invoices.json#18' failed multiple compliance checks with high severity. The invoice is missing a valid GSTIN and contains an invalid HSN/SAC code.",
   "key_findings": [
-    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B264F50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "Subtotal consistency: Subtotal missing",
-    "Invoice total validation: Total missing",
-    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B266570>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "GST rate validation: Insufficient data",
-    "Company policy check: Total missing"
+    {
+      "checkpoint": "GSTIN active status",
+      "status": "FAIL"
+    },
+    {
+      "checkpoint": "HSN/SAC validation",
+      "status": "FAIL"
+    }
   ],
-  "recommended_action": "Invoice can be processed without restrictions.",
+  "recommended_action": "Contact the supplier to provide the correct GSTIN and the missing invoice total. Request the supplier to confirm the correct HSN/SAC code for the goods or services provided.",
   "audit_notes": [
-    "REVIEW: GSTIN active status",
-    "NA: Subtotal consistency",
-    "REVIEW: Invoice total validation",
-    "REVIEW: HSN/SAC validation",
-    "NA: GST rate validation",
-    "NA: Company policy check"
+    "The invoice total is missing, and the GST rate validation check returned insufficient data. However, these issues do not affect the final decision as they have lower severity."
   ],
-  "confidence_score": 0.95
+  "confidence_score": 0.5
 }

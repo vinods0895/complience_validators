@@ -1,148 +1,182 @@
-
-
+import json
+import re
 from typing import Dict, List, Optional
+from llm_clients import llm_clients
 
 
 class ReporterAgent:
-    def __init__(self):
-        pass
+    def __init__(self, llm_backend: str = "openrouter_free"):
+        self.llm = llm_clients[llm_backend]
 
-    
+    # -------------------------------------------------
+    # PUBLIC API
+    # -------------------------------------------------
     def generate_report(
         self,
         invoice_id: str,
         validation_result: Dict,
         resolver_result: Optional[Dict] = None,
     ) -> Dict:
-        """
-        Generates a structured compliance report for one invoice.
-        """
+        llm_input = self._build_prompt(
+            invoice_id, validation_result, resolver_result
+        )
 
+        llm_output = self._safe_call_llm(llm_input)
+
+        # Always enforce schema + safety
+        report = self._normalize_report(
+            llm_output,
+            invoice_id,
+            validation_result,
+            resolver_result,
+        )
+
+        return report
+
+    # -------------------------------------------------
+    # LLM PROMPT
+    # -------------------------------------------------
+    def _build_prompt(
+        self,
+        invoice_id: str,
+        validation_result: Dict,
+        resolver_result: Optional[Dict],
+    ) -> str:
+        return f"""
+You are a compliance reporting system.
+
+Return ONLY valid JSON.
+No markdown. No explanation. No comments.
+
+Schema:
+{{
+  "summary": string,
+  "key_findings": [string],
+  "recommended_action": string,
+  "audit_notes": [string],
+  "confidence_score": number between 0 and 1
+}}
+
+Invoice ID: {invoice_id}
+
+Validation result:
+{json.dumps(validation_result, indent=2)}
+
+Resolver reasoning:
+{resolver_result.get("llm_reasoning") if resolver_result else "N/A"}
+""".strip()
+
+    # -------------------------------------------------
+    # SAFE LLM CALL (NEVER FAILS)
+    # -------------------------------------------------
+    def _safe_call_llm(self, prompt: str) -> Dict:
+        try:
+            raw = self.llm(prompt)
+            return self._parse_json_safely(raw)
+        except Exception as e:
+            # Absolute fallback
+            return {
+                "summary": "Report generated without LLM due to parsing issues.",
+                "key_findings": [],
+                "recommended_action": "Manual review recommended.",
+                "audit_notes": [str(e)],
+                "confidence_score": 0.5,
+            }
+
+    # -------------------------------------------------
+    # JSON PARSER (VERY IMPORTANT)
+    # -------------------------------------------------
+    def _parse_json_safely(self, text: str) -> Dict:
+        # 1. Try strict JSON
+        try:
+            return json.loads(text)
+        except Exception:
+            pass
+
+        # 2. Extract JSON block
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group())
+            except Exception:
+                pass
+
+        # 3. Give up safely
+        raise ValueError("LLM returned unparseable JSON")
+
+    # -------------------------------------------------
+    # NORMALIZATION & GUARDS
+    # -------------------------------------------------
+    def _normalize_report(
+        self,
+        data: Dict,
+        invoice_id: str,
+        validation_result: Dict,
+        resolver_result: Optional[Dict],
+    ) -> Dict:
         final_status = validation_result["summary"]["final_status"]
-        checks = validation_result["checks"]
 
-        # Extract findings
-        failed = [c for c in checks if c["status"] == "FAIL"]
-        warnings = [c for c in checks if c["status"] in ("REVIEW", "NA")]
+        # Summary
+        summary = str(data.get("summary") or "Compliance report generated.")
 
-        # Determine risk level
-        risk_level = self._determine_risk(final_status, failed)
+        # Key findings
+        key_findings = data.get("key_findings")
+        if not isinstance(key_findings, list):
+            key_findings = []
 
-        # Build report sections
+        key_findings = [str(x) for x in key_findings]
+
+        # Audit notes
+        audit_notes = data.get("audit_notes")
+        if isinstance(audit_notes, str):
+            audit_notes = [audit_notes]
+        elif not isinstance(audit_notes, list):
+            audit_notes = []
+
+        # Confidence score
+        try:
+            confidence = float(data.get("confidence_score", 0.5))
+        except Exception:
+            confidence = 0.5
+
+        # Clamp between 0 and 1
+        confidence = max(0.0, min(confidence, 1.0))
+
+        # Recommended action
+        recommended_action = str(
+            data.get("recommended_action")
+            or self._default_action(final_status)
+        )
+
         report = {
             "invoice_id": invoice_id,
             "final_decision": final_status,
-            "risk_level": risk_level,
-            "summary": self._build_summary(final_status, failed, warnings),
-            "key_findings": self._extract_key_findings(failed, warnings),
-            "recommended_action": self._recommended_action(
-                final_status, resolver_result
-            ),
-            "audit_notes": self._audit_notes(failed, warnings),
-            "confidence_score": self._confidence_score(final_status, warnings),
+            "risk_level": self._risk_level(final_status),
+            "summary": summary,
+            "key_findings": key_findings,
+            "recommended_action": recommended_action,
+            "audit_notes": audit_notes,
+            "confidence_score": confidence,
         }
 
-        # Attach LLM reasoning if present
         if resolver_result:
             report["llm_reasoning"] = resolver_result.get("llm_reasoning")
 
         return report
 
-    
-    def _determine_risk(self, final_status: str, failed: List[Dict]) -> str:
-        if final_status == "FAIL":
-            return "HIGH"
-        if final_status == "REVIEW":
-            return "MEDIUM"
-        return "LOW"
+    # -------------------------------------------------
+    # HELPERS
+    # -------------------------------------------------
+    def _risk_level(self, status: str) -> str:
+        return {
+            "PASS": "LOW",
+            "REVIEW": "MEDIUM",
+            "FAIL": "HIGH",
+        }.get(status, "MEDIUM")
 
-    def _build_summary(
-        self,
-        final_status: str,
-        failed: List[Dict],
-        warnings: List[Dict],
-    ) -> str:
-        if final_status == "PASS":
-            if warnings:
-                return (
-                    "Invoice is largely compliant with minor informational gaps "
-                    "that do not block processing."
-                )
-            return "Invoice is fully compliant with all validation checks."
-
-        if final_status == "REVIEW":
-            return (
-                "Invoice requires review due to ambiguous or missing information. "
-                "No critical violations detected."
-            )
-
-        return (
-            "Invoice has critical compliance issues and cannot be processed "
-            "without correction."
-        )
-
-    def _extract_key_findings(
-        self,
-        failed: List[Dict],
-        warnings: List[Dict],
-    ) -> List[str]:
-        findings = []
-
-        for c in failed:
-            findings.append(f"{c['checkpoint']}: {c['details']}")
-
-        for c in warnings:
-            if c["details"]:
-                findings.append(f"{c['checkpoint']}: {c['details']}")
-
-        return findings
-
-    def _recommended_action(
-        self,
-        final_status: str,
-        resolver_result: Optional[Dict],
-    ) -> str:
-        if final_status == "PASS":
-            return "Invoice can be processed without restrictions."
-
-        if final_status == "REVIEW":
-            if resolver_result and resolver_result.get("llm_reasoning"):
-                return (
-                    "Process invoice with caution. "
-                    "Follow recommendations provided in the reasoning section."
-                )
-            return "Seek clarification from vendor before processing."
-
-        return "Reject invoice and request corrected version from vendor."
-
-    def _audit_notes(
-        self,
-        failed: List[Dict],
-        warnings: List[Dict],
-    ) -> List[str]:
-        notes = []
-
-        for c in failed:
-            notes.append(
-                f"FAIL: {c['checkpoint']} ({c.get('severity', 'UNKNOWN')})"
-            )
-
-        for c in warnings:
-            notes.append(
-                f"{c['status']}: {c['checkpoint']}"
-            )
-
-        if not notes:
-            notes.append("All compliance checks passed.")
-
-        return notes
-
-    def _confidence_score(self, final_status: str, warnings: List[Dict]) -> float:
-        """
-        Simple deterministic confidence scoring.
-        """
-        if final_status == "FAIL":
-            return 0.30
-        if final_status == "REVIEW":
-            return round(0.70 - (len(warnings) * 0.05), 2)
-        return 0.95 
+    def _default_action(self, status: str) -> str:
+        if status == "PASS":
+            return "Invoice can be processed."
+        if status == "REVIEW":
+            return "Manual review required."
+        return "Invoice must be corrected by vendor."

@@ -32,7 +32,7 @@ class ValidatorAgent:
 
         # ---------------- GST + Compliance ----------------
         checks.append(self._check_invoice_total(data))
-        checks.append(self._check_hsn_code(data))
+        checks.append(self._check_hsn_code(data))      # ✅ FIXED
         checks.append(self._check_gst_rate(data))
         checks.append(self._check_company_policy(data))
 
@@ -209,9 +209,15 @@ class ValidatorAgent:
             "HIGH",
         )
 
+    # -------------------------------------------------------------------
+    # ✅ FIXED HSN/SAC VALIDATION (MASTER DATA + KEYWORDS)
+    # -------------------------------------------------------------------
     def _check_hsn_code(self, data: Dict) -> Dict:
         for idx, item in enumerate(data.get("line_items", [])):
             hsn = item.get("hsn_sac")
+            desc = (item.get("description") or "").lower()
+            qty = item.get("quantity") or 0
+
             if not hsn:
                 return self._result(
                     "HSN/SAC validation",
@@ -219,6 +225,7 @@ class ValidatorAgent:
                     f"Missing HSN/SAC at item {idx}",
                     "HIGH",
                 )
+
             try:
                 resp = requests.post(
                     HSN_API_URL, json={"hsn_sac": hsn}, timeout=5
@@ -230,6 +237,36 @@ class ValidatorAgent:
                         f"Invalid HSN/SAC {hsn}",
                         "HIGH",
                     )
+
+                master = resp.json()
+
+                keywords = master.get("keywords", [])
+                category = master.get("category")
+
+                # GOODS sanity check
+                if category == "GOODS" and qty <= 0:
+                    return self._result(
+                        "HSN/SAC validation",
+                        "FAIL",
+                        f"Invalid quantity for GOODS HSN {hsn}",
+                        "HIGH",
+                    )
+
+                matched = [
+                    kw for kw in keywords if kw.lower() in desc
+                ]
+
+                if not matched:
+                    return self._result(
+                        "HSN/SAC validation",
+                        "REVIEW",
+                        (
+                            f"HSN {hsn} exists but description does not clearly "
+                            "match master keywords. Manual review required."
+                        ),
+                        "MEDIUM",
+                    )
+
             except Exception as e:
                 return self._result(
                     "HSN/SAC validation",
@@ -237,8 +274,12 @@ class ValidatorAgent:
                     f"HSN service unreachable: {e}",
                     "MEDIUM",
                 )
+
         return self._result("HSN/SAC validation", "PASS")
 
+    # -------------------------------------------------------------------
+    # GST RATE (UNCHANGED)
+    # -------------------------------------------------------------------
     def _check_gst_rate(self, data: Dict) -> Dict:
         taxable = sum(
             i.get("amount") or 0 for i in data.get("line_items", [])
@@ -298,6 +339,9 @@ class ValidatorAgent:
 
         return self._result("GST rate validation", "PASS")
 
+    # -------------------------------------------------------------------
+    # COMPANY POLICY (UNCHANGED)
+    # -------------------------------------------------------------------
     def _check_company_policy(self, data: Dict) -> Dict:
         total = data.get("total_amount")
         if total is None:

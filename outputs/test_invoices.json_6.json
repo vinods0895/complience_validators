@@ -2,24 +2,12 @@
   "invoice_id": "test_invoices.json#6",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "Invoice has critical compliance issues and cannot be processed without correction.",
+  "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    "HSN/SAC validation: Missing HSN/SAC at item 0",
-    "GSTIN active status: Vendor GSTIN missing",
-    "Subtotal consistency: Subtotal missing",
-    "Tax calculation accuracy: Tax breakup missing",
-    "GST rate validation: Insufficient data",
-    "Company policy check: Policy service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B2674D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    "Missing HS/SAC at item 0"
   ],
-  "recommended_action": "Reject invoice and request corrected version from vendor.",
-  "audit_notes": [
-    "FAIL: HSN/SAC validation (HIGH)",
-    "NA: GSTIN active status",
-    "NA: Subtotal consistency",
-    "NA: Tax calculation accuracy",
-    "NA: GST rate validation",
-    "REVIEW: Company policy check"
-  ],
-  "confidence_score": 0.3,
-  "llm_reasoning": "1. The first issue is a documentation gap as the HSN/SAC code is missing for the item in the invoice.\n2. The invoice cannot be accepted without the HSN/SAC code as it is a mandatory requirement for GST compliance.\n3. The recommended next action would be to contact the supplier and request them to provide the missing HSN/SAC code for the item in question. Once received, the invoice can be updated and processed accordingly."
+  "recommended_action": "Request supplier to provide correct HS/SAC code for the item",
+  "audit_notes": [],
+  "confidence_score": 1.0,
+  "llm_reasoning": "1. This is a documentation gap as the invoice is missing the Harmonized System (HS) Code or Service Accounting Code (SAC) for the item described.\n2. The invoice cannot be accepted in its current form due to the missing HS/SAC information.\n3. The recommended next action would be to request the supplier to provide the correct HS/SAC code for the item in question. Once received, the invoice can be processed accordingly."
 }

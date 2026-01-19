@@ -6,10 +6,7 @@ from Agents.validator import ValidatorAgent
 from Agents.resolver import ResolverAgent
 from Agents.reporter import ReporterAgent
 
-
-# -------------------------------------------------
-# Load invoices
-# -------------------------------------------------
+# load invoices 
 def load_invoices(invoices_path: Path):
     invoices = []
 
@@ -28,9 +25,9 @@ def load_invoices(invoices_path: Path):
     return invoices
 
 
-# -------------------------------------------------
-# Pretty print invoice context
-# -------------------------------------------------
+
+# print invoice context
+
 def print_invoice_context(invoice: InvoiceModel):
     vendor = invoice.vendor
     buyer = invoice.buyer
@@ -81,9 +78,9 @@ def print_invoice_context(invoice: InvoiceModel):
     print("-" * 50)
 
 
-# -------------------------------------------------
+
 # Save report as JSON
-# -------------------------------------------------
+
 def save_result_as_json(invoice_id: str, report: dict):
     output_dir = Path("outputs")
     output_dir.mkdir(exist_ok=True)
@@ -95,9 +92,9 @@ def save_result_as_json(invoice_id: str, report: dict):
     print(f"📄 JSON report saved to: {output_file}")
 
 
-# -------------------------------------------------
+
 # Main pipeline
-# -------------------------------------------------
+
 def main():
     PROJECT_ROOT = Path(__file__).resolve().parent
     DATA_PATH = PROJECT_ROOT / "data"
@@ -105,29 +102,31 @@ def main():
     print(f"📁 Project root : {PROJECT_ROOT}")
     print(f"📁 Data path    : {DATA_PATH}")
 
-    # -------------------------------
+    
     # Initialize agents
-    # -------------------------------
+    
     validator = ValidatorAgent()
     resolver = ResolverAgent(llm_backend="openrouter_free")
-    reporter = ReporterAgent()
+    reporter = ReporterAgent(llm_backend="openrouter_free")
 
-    # -------------------------------
+    
     # Load invoices
-    # -------------------------------
+    
     invoices = load_invoices(DATA_PATH / "invoices")
     print(f"\n📂 Extracted {len(invoices)} invoice(s)")
 
-    # -------------------------------
+   
     # Run pipeline
-    # -------------------------------
+   
     for filename, invoice in invoices:
         print(f"\n🔍 VALIDATING: {filename}")
 
         # Print invoice context
         print_invoice_context(invoice)
 
+        
         # Validation
+        
         validation_result = validator.validate_invoice(invoice)
 
         print("\n🧪 VALIDATION RESULTS")
@@ -142,15 +141,15 @@ def main():
             severity = check.get("severity", "LOW")
 
             print(
-                f"{icon} [{severity}] {check['checkpoint']} → {check['status']} | {details}"
+                f"{icon} [{severity}] {check['checkpoint']} "
+                f"→ {check['status']} | {details}"
             )
 
         final_status = validation_result["summary"]["final_status"]
         print(f"\n📌 FINAL VALIDATION STATUS: {final_status}")
 
-        # -------------------------------
         # Resolver (LLM reasoning)
-        # -------------------------------
+        
         resolver_result = None
         if final_status in ("FAIL", "REVIEW"):
             print("\n🧠 LLM REASONING")
@@ -161,6 +160,8 @@ def main():
             print(resolver_result.get("llm_reasoning", "No reasoning returned"))
 
         
+        # Reporter (LLM narrative)
+        
         report = reporter.generate_report(
             invoice_id=filename,
             validation_result=validation_result,
@@ -169,6 +170,9 @@ def main():
 
         save_result_as_json(filename, report)
 
+        
+        # Print final report
+        
         print("\n📊 FINAL REPORT")
         print("-" * 50)
         print(f"Decision           : {report['final_decision']}")

@@ -2,22 +2,26 @@
   "invoice_id": "test_invoices.json#17",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "Invoice has critical compliance issues and cannot be processed without correction.",
+  "summary": "The invoice with ID 'test_invoices.json#17' failed multiple compliance checks with high severity. The invoice total is less than the taxable amount, and the HSN/SAC code is invalid.",
   "key_findings": [
-    "Invoice total validation: Total < taxable",
-    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B267DA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B2657F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "GST rate validation: GST rate service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B265520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "Company policy check: Policy service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B26CF20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    {
+      "checkpoint": "Invoice total validation",
+      "status": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "checkpoint": "HSN/SAC validation",
+      "status": "FAIL",
+      "severity": "HIGH"
+    }
   ],
-  "recommended_action": "Reject invoice and request corrected version from vendor.",
+  "recommended_action": [
+    "Contact the supplier to provide the correct HSN/SAC code for the invoice items.",
+    "Verify the calculation of the invoice total and the tax amount.",
+    "If the issues are resolved, process the invoice. If not, consult with the GST compliance team for further guidance."
+  ],
   "audit_notes": [
-    "FAIL: Invoice total validation (HIGH)",
-    "REVIEW: GSTIN active status",
-    "REVIEW: HSN/SAC validation",
-    "REVIEW: GST rate validation",
-    "REVIEW: Company policy check"
+    "The invoice with ID 'test_invoices.json#17' failed the invoice total validation and HSN/SAC validation checks. The invoice total is less than the taxable amount, and the HSN/SAC code is invalid (998315)."
   ],
-  "confidence_score": 0.3,
-  "llm_reasoning": "1. This is a documentation gap as the compliance issues detected are related to the validation of certain GST-related information with external systems, which can be resolved by establishing a connection to those systems.\n2. The invoice cannot be accepted without clarification as the compliance issues detected could potentially impact the accuracy of the GST information reported. It is recommended to contact the supplier to obtain the correct GSTIN, HSN codes, and rates to ensure proper GST compliance.\n3. The recommended next action is to follow up with the supplier to provide the missing or incorrect information, and to re-validate the invoice once the connection to the external systems is established and the information is confirmed to be accurate."
+  "confidence_score": 0.95
 }

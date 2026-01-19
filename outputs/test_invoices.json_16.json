@@ -1,20 +1,26 @@
 {
   "invoice_id": "test_invoices.json#16",
-  "final_decision": "PASS",
-  "risk_level": "LOW",
-  "summary": "Invoice is largely compliant with minor informational gaps that do not block processing.",
+  "final_decision": "FAIL",
+  "risk_level": "HIGH",
+  "summary": "The invoice with ID 'test_invoices.json#16' failed the HSN/SAC validation check with a high severity issue. Additionally, there was a medium severity documentation gap identified during the company policy check.",
   "key_findings": [
-    "GSTIN active status: GST service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B267F20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "HSN/SAC validation: HSN service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B264A70>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "GST rate validation: GST rate service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B266ED0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
-    "Company policy check: Policy service unreachable: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001607B2668D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    {
+      "checkpoint": "HSN/SAC validation",
+      "status": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "checkpoint": "Company policy check",
+      "status": "REVIEW",
+      "severity": "MEDIUM"
+    }
   ],
-  "recommended_action": "Invoice can be processed without restrictions.",
+  "recommended_action": {
+    "HSN_SAC_validation": "Contact the supplier to obtain the correct HSN/SAC code for the goods or services provided in the invoice.",
+    "Company_policy_check": "Review the invoice against the relevant internal policies and guidelines."
+  },
   "audit_notes": [
-    "REVIEW: GSTIN active status",
-    "REVIEW: HSN/SAC validation",
-    "REVIEW: GST rate validation",
-    "REVIEW: Company policy check"
+    ""
   ],
-  "confidence_score": 0.95
+  "confidence_score": 0.9
 }
