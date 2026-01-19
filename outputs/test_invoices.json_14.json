@@ -2,25 +2,13 @@
   "invoice_id": "test_invoices.json#14",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "The invoice with ID 'test_invoices.json#14' failed the HSN/SAC validation check with a high severity issue. A documentation gap was identified in the company policy check with a medium severity. No final action can be taken without resolving the HSN/SAC validation issue.",
+  "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    {
-      "checkpoint": "HSN/SAC validation",
-      "status": "FAIL",
-      "severity": "HIGH"
-    },
-    {
-      "checkpoint": "Company policy check",
-      "status": "REVIEW",
-      "severity": "MEDIUM"
-    }
+    "Invalid HSN/SAC code 998712",
+    "GST rate not found for 998712"
   ],
-  "recommended_action": {
-    "HSN_SAC_validation": "Contact the supplier to provide the correct HSN/SAC code for the goods or services provided in the invoice.",
-    "Company_policy_check": "Review the invoice against the relevant internal policies and guidelines."
-  },
-  "audit_notes": [
-    "The HSN/SAC validation issue is a hard compliance violation and may lead to incorrect GST calculation and reporting. The company policy check issue is a documentation gap and may require further review to ensure adherence to internal policies."
-  ],
-  "confidence_score": 0.8
+  "recommended_action": "Contact supplier for correct HSN/SAC code and GST rate",
+  "audit_notes": [],
+  "confidence_score": 1.0,
+  "llm_reasoning": "1. This is a hard compliance violation as the invoice does not adhere to the mandatory HSN/SAC and GST rate requirements.\n2. No, the invoice cannot be accepted without clarification as it does not meet the necessary compliance standards.\n3. The recommended next action would be to contact the supplier and request them to provide the correct HSN/SAC code and GST rate for the goods or services provided in the invoice. Once this information is obtained, the invoice can be updated and processed accordingly."
 }

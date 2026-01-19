@@ -2,20 +2,13 @@
   "invoice_id": "test_invoices.json#18",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "The invoice with ID 'test_invoices.json#18' failed multiple compliance checks with high severity. The invoice is missing a valid GSTIN and contains an invalid HSN/SAC code.",
+  "summary": "{'final_status': 'REVIEW'}",
   "key_findings": [
-    {
-      "checkpoint": "GSTIN active status",
-      "status": "FAIL"
-    },
-    {
-      "checkpoint": "HSN/SAC validation",
-      "status": "FAIL"
-    }
+    "Missing invoice total",
+    "Invalid HSN/SAC code 998315"
   ],
-  "recommended_action": "Contact the supplier to provide the correct GSTIN and the missing invoice total. Request the supplier to confirm the correct HSN/SAC code for the goods or services provided.",
-  "audit_notes": [
-    "The invoice total is missing, and the GST rate validation check returned insufficient data. However, these issues do not affect the final decision as they have lower severity."
-  ],
-  "confidence_score": 0.5
+  "recommended_action": "Contact supplier for missing invoice total and verification of HSN/SAC code",
+  "audit_notes": [],
+  "confidence_score": 0.5,
+  "llm_reasoning": "1. This is a documentation gap as the invoice total is missing, but the HSN/SAC code is identified as invalid, which could potentially be a compliance issue if not corrected.\n2. The invoice cannot be accepted without clarification on the missing invoice total and the invalid HSN/SAC code. The supplier should be contacted to provide the correct information.\n3. The recommended next action is to reach out to the supplier for the missing invoice total and to verify the correct HSN/SAC code. Once this information is obtained, the invoice can be processed accordingly."
 }

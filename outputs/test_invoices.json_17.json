@@ -2,26 +2,14 @@
   "invoice_id": "test_invoices.json#17",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "The invoice with ID 'test_invoices.json#17' failed multiple compliance checks with high severity. The invoice total is less than the taxable amount, and the HSN/SAC code is invalid.",
+  "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    {
-      "checkpoint": "Invoice total validation",
-      "status": "FAIL",
-      "severity": "HIGH"
-    },
-    {
-      "checkpoint": "HSN/SAC validation",
-      "status": "FAIL",
-      "severity": "HIGH"
-    }
+    "Invoice total validation: Total < taxable",
+    "HSN/SAC validation: Invalid HSN/SAC 998315",
+    "GST rate validation: GST rate not found for 998315"
   ],
-  "recommended_action": [
-    "Contact the supplier to provide the correct HSN/SAC code for the invoice items.",
-    "Verify the calculation of the invoice total and the tax amount.",
-    "If the issues are resolved, process the invoice. If not, consult with the GST compliance team for further guidance."
-  ],
-  "audit_notes": [
-    "The invoice with ID 'test_invoices.json#17' failed the invoice total validation and HSN/SAC validation checks. The invoice total is less than the taxable amount, and the HSN/SAC code is invalid (998315)."
-  ],
-  "confidence_score": 0.95
+  "recommended_action": "Request supplier to provide a corrected invoice with the valid HSN/SAC code and the correct GST rate.",
+  "audit_notes": [],
+  "confidence_score": 0.9,
+  "llm_reasoning": "1. This is a hard compliance violation as the invoice does not meet the minimum requirements for GST compliance. The issues detected indicate that the invoice total is less than the taxable amount, the HSN/SAC code is invalid, and the GST rate is not found for that code.\n2. The invoice cannot be accepted as is, without clarification or correction. The Accounts Payable team should contact the supplier to obtain a corrected invoice with the correct HSN/SAC code and the appropriate GST rate.\n3. The recommended next action is to request the supplier to provide a corrected invoice with the valid HSN/SAC code and the correct GST rate. Once received, the invoice should be re-evaluated for compliance and processed accordingly."
 }

@@ -2,25 +2,14 @@
   "invoice_id": "test_invoices.json#20",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "The invoice with ID 'test_invoices.json#20' failed the HSN/SAC validation check with a high severity issue and has a documentation gap due to a failed company policy check.",
+  "summary": "{'final_status': 'FAIL_WITH_CLARIFICATION'}",
   "key_findings": [
-    {
-      "checkpoint": "HSN/SAC validation",
-      "status": "FAIL",
-      "severity": "HIGH"
-    },
-    {
-      "checkpoint": "Company policy check",
-      "status": "REVIEW",
-      "severity": "MEDIUM"
-    }
+    "GST rate not found for HS code 94032000"
   ],
-  "recommended_action": {
-    "HSN/SAC validation": "Contact the supplier to correct the incorrect HSN code and resubmit the invoice.",
-    "Company policy check": "Manually review the invoice against the organization's internal policies."
-  },
+  "recommended_action": "Contact supplier for correct GST rate",
   "audit_notes": [
-    "The HSN/SAC validation issue is a hard compliance violation, while the company policy check issue is a documentation gap."
+    "GST rate validation failed for HS code 94032000"
   ],
-  "confidence_score": 0.9
+  "confidence_score": 0.9,
+  "llm_reasoning": "1. This is a documentation gap as the GST rate for the Harmonized System (HS) code 94032000 may not be present in the current GST rate database.\n2. The invoice can be accepted with clarification. You may reach out to the supplier to confirm the correct GST rate applicable to the goods or services described in the invoice with HS code 94032000.\n3. Once the correct GST rate is obtained from the supplier, update the invoice record accordingly and ensure that the GST liability is calculated and recorded correctly in your accounting system."
 }
