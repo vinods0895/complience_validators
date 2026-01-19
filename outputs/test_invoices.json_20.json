@@ -1,15 +1,10 @@
 {
   "invoice_id": "test_invoices.json#20",
-  "final_decision": "FAIL",
-  "risk_level": "HIGH",
-  "summary": "{'final_status': 'FAIL_WITH_CLARIFICATION'}",
-  "key_findings": [
-    "GST rate not found for HS code 94032000"
-  ],
-  "recommended_action": "Contact supplier for correct GST rate",
-  "audit_notes": [
-    "GST rate validation failed for HS code 94032000"
-  ],
-  "confidence_score": 0.9,
-  "llm_reasoning": "1. This is a documentation gap as the GST rate for the Harmonized System (HS) code 94032000 may not be present in the current GST rate database.\n2. The invoice can be accepted with clarification. You may reach out to the supplier to confirm the correct GST rate applicable to the goods or services described in the invoice with HS code 94032000.\n3. Once the correct GST rate is obtained from the supplier, update the invoice record accordingly and ensure that the GST liability is calculated and recorded correctly in your accounting system."
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "{'final_status': 'PASS'}",
+  "key_findings": [],
+  "recommended_action": "Invoice can be processed.",
+  "audit_notes": [],
+  "confidence_score": 1.0
 }

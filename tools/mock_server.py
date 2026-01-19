@@ -14,7 +14,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MASTER_DATA_DIR = BASE_DIR / "data" / "master_data"
 
 # -------------------------------------------------
-# SAFE LOADERS (NO CRASH GUARANTEE)
+# NORMALIZATION (CRITICAL)
+# -------------------------------------------------
+def normalize_hsn(raw) -> str:
+    """Normalize HSN / SAC for safe lookup."""
+    return re.sub(r"\D", "", str(raw or "")).strip()
+
+def to_float(val) -> float:
+    try:
+        return float(val or 0)
+    except Exception:
+        return 0.0
+
+# -------------------------------------------------
+# SAFE LOADERS
 # -------------------------------------------------
 def safe_load_json(path):
     try:
@@ -38,34 +51,59 @@ def safe_load_gst_rates_csv(path):
     rates = {}
     try:
         if not path.exists():
+            print(f"[WARN] GST rate CSV not found: {path}")
             return rates
 
         with open(path, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
+            print("📄 GST CSV headers:", reader.fieldnames)
+
             for row in reader:
-                hsn = row.get("hsn_sac") or row.get("hsn")
+                hsn = normalize_hsn(row.get("hsn_sac_code"))
                 if not hsn:
                     continue
 
-                if row.get("total_rate"):
-                    rate = float(row["total_rate"])
-                else:
-                    cgst = float(row.get("cgst", 0) or 0)
-                    sgst = float(row.get("sgst", 0) or 0)
-                    igst = float(row.get("igst", 0) or 0)
-                    rate = cgst + sgst + igst
+                cgst = to_float(row.get("rate_cgst"))
+                sgst = to_float(row.get("rate_sgst"))
+                igst = to_float(row.get("rate_igst"))
 
-                rates[hsn] = {"total_rate": round(rate, 2)}
+                rates[hsn] = {
+                    "total_rate": round(cgst + sgst + igst, 2),
+                    "cgst": cgst,
+                    "sgst": sgst,
+                    "igst": igst,
+                    "category": row.get("category"),
+                    "effective_from": row.get("effective_from"),
+                    "effective_to": row.get("effective_to"),
+                    "special_conditions": row.get("special_conditions"),
+                    "description": row.get("description"),
+                }
+
     except Exception as e:
         print(f"[WARN] Failed loading GST rate CSV: {e}")
 
     return rates
 
 # -------------------------------------------------
-# LOAD MASTER DATA
+# LOAD MASTER DATA (HSN + SAC MERGED)
 # -------------------------------------------------
 hsn_raw = safe_load_json(MASTER_DATA_DIR / "hsn_sac_codes.json")
-HSN_MASTER = hsn_raw.get("hsn_codes", {})
+
+HSN_MASTER = {}
+
+# GOODS (HSN)
+for k, v in (hsn_raw.get("hsn_codes") or {}).items():
+    HSN_MASTER[normalize_hsn(k)] = {
+        **v,
+        "code_type": "HSN",
+    }
+
+# SERVICES (SAC)
+for k, v in (hsn_raw.get("sac_codes") or {}).items():
+    HSN_MASTER[normalize_hsn(k)] = {
+        **v,
+        "code_type": "SAC",
+    }
 
 GST_RATE_MASTER = safe_load_gst_rates_csv(
     MASTER_DATA_DIR / "gst_rates_schedule.csv"
@@ -78,7 +116,7 @@ company_policy = safe_load_yaml(
 GSTIN_REGEX = r"\b\d{2}[A-Z0-9]{13}\b"
 
 # -------------------------------------------------
-# GSTIN REGISTRY (NEVER FAILS HARD)
+# GSTIN REGISTRY
 # -------------------------------------------------
 @app.route("/api/gst/validate-gstin", methods=["POST"])
 def validate_gstin():
@@ -98,33 +136,40 @@ def validate_gstin():
     }), 200
 
 # -------------------------------------------------
-# HSN / SAC MASTER LOOKUP
+# HSN / SAC VALIDATION (GOODS + SERVICES)
 # -------------------------------------------------
 @app.route("/api/gst/validate-hsn", methods=["POST"])
 def validate_hsn():
     data = request.json or {}
-    hsn = data.get("hsn_sac")
+    hsn = normalize_hsn(data.get("hsn_sac"))
 
     if not hsn:
-        return jsonify({"error": "HSN missing"}), 200
+        return jsonify({"error": "HSN/SAC missing"}), 400
 
     master = HSN_MASTER.get(hsn)
     if not master:
-        # IMPORTANT: not found ≠ invalid invoice
-        return jsonify({"error": "HSN not found in master"}), 404
+        return jsonify({"error": "HSN/SAC not found in master"}), 404
 
-    return jsonify(master), 200
+    return jsonify({
+        "hsn_sac": hsn,
+        "code_type": master.get("code_type"),
+        "description": master.get("description"),
+        "category": master.get("category"),
+        "keywords": master.get("keywords", []),
+        "group": master.get("group"),
+        "chapter": master.get("chapter"),
+    }), 200
 
 # -------------------------------------------------
-# GST RATE LOOKUP (CSV DRIVEN)
+# GST RATE LOOKUP
 # -------------------------------------------------
 @app.route("/api/gst/rate-schedule", methods=["POST"])
 def gst_rate_schedule():
     data = request.json or {}
-    hsn = data.get("hsn_sac")
+    hsn = normalize_hsn(data.get("hsn_sac"))
 
     if not hsn:
-        return jsonify({"error": "HSN missing"}), 200
+        return jsonify({"error": "HSN/SAC missing"}), 400
 
     rate = GST_RATE_MASTER.get(hsn)
     if not rate:
@@ -133,7 +178,7 @@ def gst_rate_schedule():
     return jsonify(rate), 200
 
 # -------------------------------------------------
-# COMPANY POLICY (APPROVAL MATRIX ONLY)
+# COMPANY POLICY
 # -------------------------------------------------
 @app.route("/api/policy/check", methods=["POST"])
 def check_policy():
@@ -163,7 +208,6 @@ def check_policy():
         return jsonify({"compliant": True}), 200
 
     except Exception as e:
-        # NEVER fail validator because of policy infra
         return jsonify({
             "compliant": True,
             "warning": f"Policy evaluation skipped: {e}"
@@ -176,7 +220,7 @@ def check_policy():
 def health():
     return jsonify({
         "status": "UP",
-        "hsn_loaded": len(HSN_MASTER),
+        "hsn_sac_loaded": len(HSN_MASTER),
         "gst_rates_loaded": len(GST_RATE_MASTER),
         "policy_loaded": bool(company_policy),
     }), 200
@@ -186,5 +230,4 @@ def health():
 # -------------------------------------------------
 if __name__ == "__main__":
     print("🚀 Mock Compliance Server Starting...")
-    print(f"📁 Master data path: {MASTER_DATA_DIR}")
     app.run(host="127.0.0.1", port=5000, debug=True)

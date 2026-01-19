@@ -4,10 +4,10 @@
   "risk_level": "HIGH",
   "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    "Missing HS/SAC at item 0"
+    "Missing HS/SAC code for item"
   ],
-  "recommended_action": "Request supplier to provide correct HS/SAC code for the item",
+  "recommended_action": "Request supplier to provide correct HS/SAC code",
   "audit_notes": [],
   "confidence_score": 1.0,
-  "llm_reasoning": "1. This is a documentation gap as the invoice is missing the Harmonized System (HS) Code or Service Accounting Code (SAC) for the item described.\n2. The invoice cannot be accepted in its current form due to the missing HS/SAC information.\n3. The recommended next action would be to request the supplier to provide the correct HS/SAC code for the item in question. Once received, the invoice can be processed accordingly."
+  "llm_reasoning": "1. This is a documentation gap as the invoice is missing the Harmonized System (HS) Code or Services Accounting Code (SAC) for the item described.\n2. The invoice cannot be accepted in its current form due to the missing HS/SAC code.\n3. The recommended next action would be to request the supplier to provide the correct HS/SAC code for the item in question. Once received, the invoice can be processed accordingly."
 }

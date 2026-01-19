@@ -1,15 +1,10 @@
 {
   "invoice_id": "test_invoices.json#3",
-  "final_decision": "FAIL",
-  "risk_level": "HIGH",
-  "summary": "{'final_status': 'CLARIFICATION_REQUIRED'}",
-  "key_findings": [
-    "GST rate not found for HS code 48025510"
-  ],
-  "recommended_action": "Contact supplier for correct GST rate information",
-  "audit_notes": [
-    "HS code 48025510 GST rate not present in records, but this does not necessarily mean the invoice is non-compliant"
-  ],
-  "confidence_score": 0.8,
-  "llm_reasoning": "1. This is a documentation gap as the GST rate for the Harmonized System (HS) code 48025510 is not present in our records. However, it is important to note that this does not necessarily mean the invoice is non-compliant, as we may not have the most up-to-date or complete HS code information.\n\n2. The invoice can be accepted with clarification. We recommend contacting the supplier to confirm the correct GST rate applicable to the HS code 48025510. Once we have this information, we can update our records and ensure accurate GST reporting.\n\n3. The recommended next action is to reach out to the supplier for the correct GST rate information. Once obtained, update the invoice record accordingly and ensure the GST reporting is adjusted accordingly."
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "{'final_status': 'PASS'}",
+  "key_findings": [],
+  "recommended_action": "Invoice can be processed.",
+  "audit_notes": [],
+  "confidence_score": 1.0
 }

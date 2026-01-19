@@ -1,14 +1,10 @@
 {
   "invoice_id": "test_invoices.json#0",
-  "final_decision": "FAIL",
-  "risk_level": "HIGH",
-  "summary": "{'final_status': 'FAIL'}",
-  "key_findings": [
-    "Invalid HSN/SAC code 998315",
-    "GST rate not found for 998315"
-  ],
-  "recommended_action": "Request clarification from supplier regarding correct HSN/SAC code and GST rate",
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "{'final_status': 'PASS'}",
+  "key_findings": [],
+  "recommended_action": "Invoice can be processed.",
   "audit_notes": [],
-  "confidence_score": 0.9,
-  "llm_reasoning": "1. This is a hard compliance violation as the invoice does not adhere to the mandatory HSN/SAC and GST rate requirements.\n2. No, the invoice cannot be accepted without clarification as it does not meet the necessary compliance standards.\n3. The recommended next action would be to request clarification from the supplier regarding the correct HSN/SAC code and GST rate for the goods or services provided in the invoice. Once this information is obtained, the invoice can be re-evaluated for compliance."
+  "confidence_score": 1.0
 }

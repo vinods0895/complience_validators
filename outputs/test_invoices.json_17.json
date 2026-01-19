@@ -4,12 +4,10 @@
   "risk_level": "HIGH",
   "summary": "{'final_status': 'FAIL'}",
   "key_findings": [
-    "Invoice total validation: Total < taxable",
-    "HSN/SAC validation: Invalid HSN/SAC 998315",
-    "GST rate validation: GST rate not found for 998315"
+    "Subtotal cannot be negative"
   ],
-  "recommended_action": "Request supplier to provide a corrected invoice with the valid HSN/SAC code and the correct GST rate.",
+  "recommended_action": "Contact supplier for corrected invoice",
   "audit_notes": [],
-  "confidence_score": 0.9,
-  "llm_reasoning": "1. This is a hard compliance violation as the invoice does not meet the minimum requirements for GST compliance. The issues detected indicate that the invoice total is less than the taxable amount, the HSN/SAC code is invalid, and the GST rate is not found for that code.\n2. The invoice cannot be accepted as is, without clarification or correction. The Accounts Payable team should contact the supplier to obtain a corrected invoice with the correct HSN/SAC code and the appropriate GST rate.\n3. The recommended next action is to request the supplier to provide a corrected invoice with the valid HSN/SAC code and the correct GST rate. Once received, the invoice should be re-evaluated for compliance and processed accordingly."
+  "confidence_score": 1.0,
+  "llm_reasoning": "1. This is a hard compliance violation as per Goods and Services Tax (GST) regulations, as the subtotal cannot be a negative value in an invoice.\n2. The invoice cannot be accepted as is due to the non-compliance with the GST regulations.\n3. The recommended next action would be to contact the supplier and request them to issue a corrected invoice with an accurate subtotal. If the error was made in your own records, you should make the necessary adjustments to bring your records in compliance with GST regulations."
 }

@@ -2,14 +2,12 @@
   "invoice_id": "test_invoices.json#12",
   "final_decision": "FAIL",
   "risk_level": "HIGH",
-  "summary": "{'final_status': 'REVIEW'}",
-  "key_findings": [
-    "HSN description and GST rate for code 90189099 are unclear"
-  ],
-  "recommended_action": "Contact supplier for clarification on HSN description and correct GST rate",
+  "summary": "Report generated without LLM due to parsing issues.",
+  "key_findings": [],
+  "recommended_action": "Manual review recommended.",
   "audit_notes": [
-    "Manual review required for HSN validation"
+    "LLM returned unparseable JSON"
   ],
   "confidence_score": 0.5,
-  "llm_reasoning": "1. This is a documentation gap as the HSN code has been identified but the description and GST rate are not clearly stated in the invoice.\n2. The invoice cannot be accepted without clarification regarding the HSN description and the applicable GST rate for the code 90189099.\n3. The recommended next action is to contact the supplier for clarification on the HSN description and the correct GST rate to apply. Once this information is obtained, the invoice can be updated and processed accordingly."
+  "llm_reasoning": "1. This is a documentation gap as the HSN/SAC code mentioned in the invoice is not present in your company's master list. However, it does not necessarily mean that the invoice is non-compliant with GST regulations.\n\n2. The invoice cannot be accepted in its current form without clarification. You should contact the supplier to confirm the correct HSN/SAC code for the goods or services provided.\n\n3. The recommended next action is to reach out to the supplier and request them to provide the correct HSN/SAC code for the invoiced items. Once you have the correct code, update your master list and record the invoice with the corrected code. If the supplier is unable to provide the correct code, consider raising a query or dispute with them to ensure accurate GST reporting."
 }

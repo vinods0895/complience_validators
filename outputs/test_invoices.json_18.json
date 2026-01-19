@@ -1,14 +1,10 @@
 {
   "invoice_id": "test_invoices.json#18",
-  "final_decision": "FAIL",
-  "risk_level": "HIGH",
-  "summary": "{'final_status': 'REVIEW'}",
-  "key_findings": [
-    "Missing invoice total",
-    "Invalid HSN/SAC code 998315"
-  ],
-  "recommended_action": "Contact supplier for missing invoice total and verification of HSN/SAC code",
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "{'final_status': 'PASS'}",
+  "key_findings": [],
+  "recommended_action": "Invoice can be processed.",
   "audit_notes": [],
-  "confidence_score": 0.5,
-  "llm_reasoning": "1. This is a documentation gap as the invoice total is missing, but the HSN/SAC code is identified as invalid, which could potentially be a compliance issue if not corrected.\n2. The invoice cannot be accepted without clarification on the missing invoice total and the invalid HSN/SAC code. The supplier should be contacted to provide the correct information.\n3. The recommended next action is to reach out to the supplier for the missing invoice total and to verify the correct HSN/SAC code. Once this information is obtained, the invoice can be processed accordingly."
+  "confidence_score": 1.0
 }

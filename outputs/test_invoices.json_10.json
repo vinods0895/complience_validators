@@ -1,15 +1,10 @@
 {
   "invoice_id": "test_invoices.json#10",
-  "final_decision": "FAIL",
-  "risk_level": "HIGH",
-  "summary": "{'final_status': 'FAIL'}",
-  "key_findings": [
-    "GST rate validation: GST rate not found for HS code 84713010"
-  ],
-  "recommended_action": "Contact supplier to obtain correct GST rate for HS code 84713010",
-  "audit_notes": [
-    "Documentation gap: GST rate for HS code 84713010 not currently available in system"
-  ],
-  "confidence_score": 0.8,
-  "llm_reasoning": "1. This is a documentation gap as the GST rate for the Harmonized System (HS) code 84713010 is not currently available in our system. However, it is important to note that this does not necessarily mean the invoice is non-compliant, as long as the correct rate is provided by the supplier and can be recorded for reporting purposes.\n\n2. The invoice cannot be accepted in its current state for processing without the correct GST rate. However, it can be held for clarification by contacting the supplier to confirm the applicable GST rate for the HS code 84713010.\n\n3. The recommended next action is to contact the supplier to obtain the correct GST rate for the HS code 84713010. Once the rate is confirmed, the invoice can be processed and recorded for reporting purposes. If the supplier is unable to provide the rate, it may be necessary to consult with a GST expert or tax authority for guidance."
+  "final_decision": "PASS",
+  "risk_level": "LOW",
+  "summary": "{'final_status': 'PASS'}",
+  "key_findings": [],
+  "recommended_action": "Invoice can be processed.",
+  "audit_notes": [],
+  "confidence_score": 1.0
 }
