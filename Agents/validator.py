@@ -9,39 +9,52 @@ GST_API_URL = "http://127.0.0.1:5000/api/gst/validate-gstin"
 HSN_API_URL = "http://127.0.0.1:5000/api/gst/validate-hsn"
 GST_RATE_API_URL = "http://127.0.0.1:5000/api/gst/rate-schedule"
 POLICY_API_URL = "http://127.0.0.1:5000/api/policy/check"
+VENDOR_API_URL = "http://127.0.0.1:5000/api/vendor/lookup"
+TDS_API_URL = "http://127.0.0.1:5000/api/tds/sections"
 
 
 class ValidatorAgent:
     """
-    Deterministic GST Invoice Validator.
-    LLMs are NOT used here.
+    Deterministic GST + TDS Invoice Validator.
+    No LLMs. No auto-fixes.
     """
 
-    # -------------------------------------------------------------------
-    # PUBLIC API
-    # -------------------------------------------------------------------
+    # =====================================================
+    # PUBLIC ENTRY
+    # =====================================================
+
     def validate_invoice(self, invoice: Any) -> Dict:
-        data = invoice.model_dump()
-        checks: List[Dict] = []
+        if isinstance(invoice, dict):
+             data = invoice
+        else:
+            data =invoice.model_dump()
+        checks:list[Dict]=[]
+        
 
         # Structural
         checks.append(self._check_invoice_number(data))
         checks.append(self._check_invoice_date(data))
+
+        # Vendor & GST
         checks.append(self._check_gstin_format(data))
         checks.append(self._check_gstin_active(data))
-
-        # ❗ FAIL FAST — NEGATIVE VALUES
-        checks.append(self._check_negative_values(data))
+        checks.append(self._check_vendor_registry(data))
 
         # Arithmetic
+        checks.append(self._check_negative_values(data))
         checks.append(self._check_line_item_arithmetic(data))
         checks.append(self._check_subtotal_consistency(data))
         checks.append(self._check_tax_calculation_accuracy(data))
         checks.append(self._check_invoice_total(data))
 
-        # Compliance
+        # HSN / GST
         checks.append(self._check_hsn_code(data))
         checks.append(self._check_gst_rate(data))
+
+        # TDS
+        checks.append(self._check_tds_section(data))
+
+        # Policy
         checks.append(self._check_company_policy(data))
 
         return {
@@ -49,9 +62,10 @@ class ValidatorAgent:
             "checks": checks,
         }
 
-    # -------------------------------------------------------------------
+    # =====================================================
     # CORE HELPERS
-    # -------------------------------------------------------------------
+    # =====================================================
+
     def _result(
         self,
         checkpoint: str,
@@ -60,15 +74,15 @@ class ValidatorAgent:
         severity: str = "LOW",
         extra: Dict | None = None,
     ) -> Dict:
-        result = {
+        res = {
             "checkpoint": checkpoint,
             "status": status,
             "severity": severity,
             "details": details,
         }
         if extra:
-            result.update(extra)
-        return result
+            res.update(extra)
+        return res
 
     def _aggregate_results(self, checks: List[Dict]) -> Dict:
         for c in checks:
@@ -79,169 +93,181 @@ class ValidatorAgent:
                 return {"final_status": "REVIEW"}
         return {"final_status": "PASS"}
 
-    def _normalize_hsn(self, raw: Any) -> str:
-        return re.sub(r"\D", "", str(raw or "")).strip()
+    # =====================================================
+    # STRUCTURAL
+    # =====================================================
 
-    # -------------------------------------------------------------------
-    # STRUCTURAL CHECKS
-    # -------------------------------------------------------------------
     def _check_invoice_number(self, data: Dict) -> Dict:
-        return (
-            self._result("Invoice number present", "PASS")
-            if data.get("invoice_number")
-            else self._result(
-                "Invoice number present",
-                "FAIL",
-                "Missing invoice number",
-                "HIGH",
-            )
+        return self._result(
+            "Invoice number present",
+            "PASS" if data.get("invoice_number") else "FAIL",
+            "Missing invoice number" if not data.get("invoice_number") else "",
+            "HIGH" if not data.get("invoice_number") else "LOW",
         )
 
     def _check_invoice_date(self, data: Dict) -> Dict:
-        return (
-            self._result("Invoice date present", "PASS")
-            if data.get("invoice_date")
-            else self._result(
-                "Invoice date present",
-                "FAIL",
-                "Missing invoice date",
-                "HIGH",
-            )
+        return self._result(
+            "Invoice date present",
+            "PASS" if data.get("invoice_date") else "FAIL",
+            "Missing invoice date" if not data.get("invoice_date") else "",
+            "HIGH" if not data.get("invoice_date") else "LOW",
         )
+
+    # =====================================================
+    # GSTIN & VENDOR
+    # =====================================================
 
     def _check_gstin_format(self, data: Dict) -> Dict:
         gstin = (data.get("vendor") or {}).get("gstin")
         if gstin and not re.fullmatch(r"\d{2}[A-Z0-9]{13}", gstin):
             return self._result(
-                "GSTIN format validation",
+                "GSTIN format",
                 "FAIL",
                 "Invalid GSTIN format",
                 "HIGH",
             )
-        return self._result("GSTIN format validation", "PASS")
+        return self._result("GSTIN format", "PASS")
 
-    # -------------------------------------------------------------------
-    # GSTIN ACTIVE STATUS (WITH METADATA)
-    # -------------------------------------------------------------------
     def _check_gstin_active(self, data: Dict) -> Dict:
         gstin = (data.get("vendor") or {}).get("gstin")
         if not gstin:
             return self._result(
-                "GSTIN active status",
-                "NA",
-                "Vendor GSTIN missing",
-                extra={
-                    "gstin_status": "UNKNOWN",
-                    "suspended_from": None,
-                    "gstin_reason": None,
-                },
+                "GSTIN active",
+                "REVIEW",
+                "GSTIN missing",
+                "MEDIUM",
             )
 
         try:
-            resp = requests.post(
-                GST_API_URL, json={"gstin": gstin}, timeout=5
-            )
-            payload = resp.json()
-
-            status = payload.get("status", "UNKNOWN")
-            suspended_from = payload.get("suspended_from")
-            reason = payload.get("reason")
-
-            if status == "SUSPENDED":
+            r = requests.post(GST_API_URL, json={"gstin": gstin}, timeout=5)
+            payload = r.json()
+            if payload.get("status") != "ACTIVE":
                 return self._result(
-                    "GSTIN active status",
+                    "GSTIN active",
                     "FAIL",
-                    f"SUSPENDED since {suspended_from or 'unknown'}",
+                    payload.get("reason", "GSTIN inactive"),
                     "HIGH",
-                    extra={
-                        "gstin_status": status,
-                        "suspended_from": suspended_from,
-                        "gstin_reason": reason,
-                    },
                 )
-
-            return self._result(
-                "GSTIN active status",
-                "PASS",
-                "GSTIN active",
-                extra={
-                    "gstin_status": status,
-                    "suspended_from": None,
-                    "gstin_reason": None,
-                },
-            )
-
+            return self._result("GSTIN active", "PASS")
         except Exception as e:
             return self._result(
-                "GSTIN active status",
+                "GSTIN active",
                 "REVIEW",
-                f"GST service unreachable: {e}",
+                f"GST API error: {e}",
                 "MEDIUM",
-                extra={
-                    "gstin_status": "UNKNOWN",
-                    "suspended_from": None,
-                    "gstin_reason": None,
-                },
             )
 
-    # -------------------------------------------------------------------
-    # ❗ NEGATIVE VALUE VALIDATION
-    # -------------------------------------------------------------------
+    def _check_vendor_registry(self, data: Dict) -> Dict:
+        gstin = (data.get("vendor") or {}).get("gstin")
+        if not gstin:
+            return self._result(
+                "Vendor registry",
+                "REVIEW",
+                "Vendor GSTIN missing",
+                "MEDIUM",
+            )
+
+        try:
+            r = requests.post(
+                VENDOR_API_URL,
+                json={"vendor_gstin": gstin},
+                timeout=5,
+            )
+            if r.status_code != 200:
+                return self._result(
+                    "Vendor registry",
+                    "FAIL",
+                    "Vendor not found in registry",
+                    "HIGH",
+                )
+            return self._result("Vendor registry", "PASS")
+        except Exception as e:
+            return self._result(
+                "Vendor registry",
+                "REVIEW",
+                f"Vendor API error: {e}",
+                "MEDIUM",
+            )
+
+    # =====================================================
+    # TDS VALIDATION
+    # =====================================================
+
+    def _check_tds_section(self, data: Dict) -> Dict:
+        tds_section = data.get("tds_section")
+        if not tds_section:
+            return self._result(
+                "TDS section",
+                "REVIEW",
+                "TDS section not provided",
+                "MEDIUM",
+            )
+
+        try:
+            r = requests.post(
+                TDS_API_URL,
+                json={"tds_section": tds_section},
+                timeout=5,
+            )
+            if r.status_code != 200:
+                return self._result(
+                    "TDS section",
+                    "FAIL",
+                    "Invalid TDS section",
+                    "HIGH",
+                )
+            return self._result("TDS section", "PASS")
+        except Exception as e:
+            return self._result(
+                "TDS section",
+                "REVIEW",
+                f"TDS API error: {e}",
+                "MEDIUM",
+            )
+
+    # =====================================================
+    # ARITHMETIC
+    # =====================================================
+
     def _check_negative_values(self, data: Dict) -> Dict:
-        fields = [
+        for field in [
             "subtotal",
             "total_tax",
             "cgst_amount",
             "sgst_amount",
             "igst_amount",
             "total_amount",
-        ]
-
-        for field in fields:
-            val = data.get(field)
-            if val is not None and val < 0:
+        ]:
+            if data.get(field) is not None and data.get(field) < 0:
                 return self._result(
-                    "Negative value validation",
+                    "Negative values",
                     "FAIL",
                     f"{field} cannot be negative",
                     "HIGH",
                 )
+        return self._result("Negative values", "PASS")
 
-        for idx, item in enumerate(data.get("line_items", [])):
-            for k in ("quantity", "rate", "amount"):
-                v = item.get(k)
-                if v is not None and v < 0:
-                    return self._result(
-                        "Negative value validation",
-                        "FAIL",
-                        f"Negative {k} at line {idx}",
-                        "HIGH",
-                    )
-
-        return self._result("Negative value validation", "PASS")
-
-    # -------------------------------------------------------------------
-    # ARITHMETIC
-    # -------------------------------------------------------------------
     def _check_line_item_arithmetic(self, data: Dict) -> Dict:
         for idx, item in enumerate(data.get("line_items", [])):
             q, r, a = item.get("quantity"), item.get("rate"), item.get("amount")
             if None not in (q, r, a) and abs((q * r) - a) > 1:
                 return self._result(
-                    "Line item calculation",
+                    "Line item arithmetic",
                     "FAIL",
-                    f"Mismatch at item {idx}",
+                    f"Mismatch at line {idx}",
                     "HIGH",
                 )
-        return self._result("Line item calculation", "PASS")
+        return self._result("Line item arithmetic", "PASS")
 
     def _check_subtotal_consistency(self, data: Dict) -> Dict:
         subtotal = data.get("subtotal")
         if subtotal is None:
             return self._result(
-                "Subtotal consistency", "NA", "Subtotal missing"
+                "Subtotal consistency",
+                "REVIEW",
+                "Subtotal missing",
+                "MEDIUM",
             )
-
         calc = sum(i.get("amount") or 0 for i in data.get("line_items", []))
         if abs(calc - subtotal) > 1:
             return self._result(
@@ -256,9 +282,11 @@ class ValidatorAgent:
         total_tax = data.get("total_tax")
         if total_tax is None:
             return self._result(
-                "Tax calculation accuracy", "NA", "Tax missing"
+                "Tax calculation",
+                "REVIEW",
+                "Tax missing",
+                "MEDIUM",
             )
-
         calc = sum(
             x or 0
             for x in (
@@ -267,119 +295,119 @@ class ValidatorAgent:
                 data.get("igst_amount"),
             )
         )
-
         if abs(calc - total_tax) > 1:
             return self._result(
-                "Tax calculation accuracy",
+                "Tax calculation",
                 "FAIL",
                 "Tax mismatch",
                 "HIGH",
             )
-
-        return self._result("Tax calculation accuracy", "PASS")
+        return self._result("Tax calculation", "PASS")
 
     def _check_invoice_total(self, data: Dict) -> Dict:
         if data.get("total_amount") is None:
             return self._result(
-                "Invoice total validation", "REVIEW", "Total missing"
+                "Invoice total",
+                "REVIEW",
+                "Total missing",
+                "MEDIUM",
             )
-        return self._result("Invoice total validation", "PASS")
+        return self._result("Invoice total", "PASS")
 
-    # -------------------------------------------------------------------
-    # HSN / SAC
-    # -------------------------------------------------------------------
+    # =====================================================
+    # HSN & GST RATE
+    # =====================================================
+
     def _check_hsn_code(self, data: Dict) -> Dict:
         for idx, item in enumerate(data.get("line_items", [])):
-            hsn = self._normalize_hsn(item.get("hsn_sac"))
+            hsn = re.sub(r"\D", "", str(item.get("hsn_sac") or ""))
             if not hsn:
                 return self._result(
-                    "HSN/SAC validation",
+                    "HSN/SAC",
                     "FAIL",
-                    f"Missing HSN/SAC at item {idx}",
+                    f"Missing HSN at line {idx}",
                     "HIGH",
                 )
-
             try:
-                resp = requests.post(
-                    HSN_API_URL, json={"hsn_sac": hsn}, timeout=5
+                r = requests.post(
+                    HSN_API_URL,
+                    json={"hsn_sac": hsn},
+                    timeout=5,
                 )
-                if resp.status_code != 200:
+                if r.status_code != 200:
                     return self._result(
-                        "HSN/SAC validation",
+                        "HSN/SAC",
                         "FAIL",
-                        f"HSN/SAC not found in master: {hsn}",
+                        f"Invalid HSN {hsn}",
                         "HIGH",
                     )
             except Exception as e:
                 return self._result(
-                    "HSN/SAC validation",
+                    "HSN/SAC",
                     "REVIEW",
-                    f"HSN service unreachable: {e}",
+                    f"HSN API error: {e}",
                     "MEDIUM",
                 )
+        return self._result("HSN/SAC", "PASS")
 
-        return self._result("HSN/SAC validation", "PASS")
-
-    # -------------------------------------------------------------------
-    # GST RATE
-    # -------------------------------------------------------------------
     def _check_gst_rate(self, data: Dict) -> Dict:
         for item in data.get("line_items", []):
-            hsn = self._normalize_hsn(item.get("hsn_sac"))
-            amount = item.get("amount") or 0
-            if not hsn or amount <= 0:
+            hsn = re.sub(r"\D", "", str(item.get("hsn_sac") or ""))
+            if not hsn:
                 continue
-
             try:
-                resp = requests.post(
-                    GST_RATE_API_URL, json={"hsn_sac": hsn}, timeout=5
+                r = requests.post(
+                    GST_RATE_API_URL,
+                    json={"hsn_sac": hsn},
+                    timeout=5,
                 )
-                if resp.status_code != 200:
+                if r.status_code != 200:
                     return self._result(
-                        "GST rate validation",
+                        "GST rate",
                         "FAIL",
                         f"GST rate not found for {hsn}",
                         "HIGH",
                     )
             except Exception as e:
                 return self._result(
-                    "GST rate validation",
+                    "GST rate",
                     "REVIEW",
-                    f"GST rate service unreachable: {e}",
+                    f"GST rate API error: {e}",
                     "MEDIUM",
                 )
+        return self._result("GST rate", "PASS")
 
-        return self._result("GST rate validation", "PASS")
-
-    # -------------------------------------------------------------------
+    # =====================================================
     # COMPANY POLICY
-    # -------------------------------------------------------------------
+    # =====================================================
+
     def _check_company_policy(self, data: Dict) -> Dict:
         total = data.get("total_amount")
         if total is None:
             return self._result(
-                "Company policy check", "NA", "Total missing"
+                "Company policy",
+                "REVIEW",
+                "Total missing",
+                "MEDIUM",
             )
-
         try:
-            resp = requests.post(
+            r = requests.post(
                 POLICY_API_URL,
                 json={"field": "invoice_amount", "value": total},
                 timeout=5,
             )
-            if not resp.json().get("compliant"):
+            if not r.json().get("compliant"):
                 return self._result(
-                    "Company policy check",
+                    "Company policy",
                     "FAIL",
-                    resp.json().get("rule", "Policy violation"),
+                    "Policy violation",
                     "HIGH",
                 )
         except Exception as e:
             return self._result(
-                "Company policy check",
+                "Company policy",
                 "REVIEW",
-                f"Policy service unreachable: {e}",
+                f"Policy API error: {e}",
                 "MEDIUM",
             )
-
-        return self._result("Company policy check", "PASS")
+        return self._result("Company policy", "PASS")

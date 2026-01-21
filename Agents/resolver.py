@@ -1,96 +1,75 @@
+import json
 from typing import Dict, Any, List
-from langchain_core.prompts import PromptTemplate
 from llm_clients import llm_clients
 
 
 class ResolverAgent:
     """
-    Uses LLM ONLY to explain REVIEW / FAIL decisions.
-    Never changes deterministic validator output.
+    Advisory LLM resolver.
+    NEVER overrides deterministic validation.
     """
 
-    def __init__(self, llm_backend: str = "openrouter_free"):
+    def __init__(self, llm_backend: str = "ollama_llama3"):
         if llm_backend not in llm_clients:
-            raise ValueError(f"Unknown LLM backend: {llm_backend}")
-
-        # Pick the backend from llm_clients registry
+            raise ValueError(
+                f"Unknown LLM backend: {llm_backend}. "
+                f"Available backends: {list(llm_clients.keys())}"
+            )
         self.llm = llm_clients[llm_backend]
 
-        # Define reusable prompt template
-        self.prompt = PromptTemplate.from_template("""
-You are a GST compliance expert assisting an Accounts Payable team.
-
-Invoice ID: {invoice_id}
-
-Compliance issues detected:
-{issues_text}
-
-Answer clearly:
-1. Is this a hard compliance violation or a documentation gap?
-2. Can the invoice be accepted with clarification?
-3. What is the recommended next action?
-
-Do NOT restate the issues verbatim.
-Do NOT mention system or technical errors.
-Respond in plain business English.
-""")
-
     def should_resolve(self, validation_result: Dict) -> bool:
-        """
-        Decide if LLM reasoning is needed.
-        """
-        return validation_result["summary"]["final_status"] in ("FAIL", "REVIEW")
+        return validation_result.get("summary", {}).get(
+            "final_status"
+        ) in ("FAIL", "REVIEW")
 
-    def resolve(self, invoice_id: str, validation_result: Dict) -> Dict[str, Any]:
-        """
-        Generate human-readable reasoning using LLM.
-        """
+    def resolve(
+        self,
+        invoice_id: str,
+        invoice_number: str,
+        validation_result: Dict,
+    ) -> Dict[str, Any]:
+
         failed_checks: List[Dict] = [
-            c for c in validation_result["checks"]
-            if c["status"] in ("FAIL", "REVIEW")
+            {
+                "checkpoint": c.get("checkpoint"),
+                "status": c.get("status"),
+                "severity": c.get("severity"),
+                "details": c.get("details"),
+            }
+            for c in validation_result.get("checks", [])
+            if c.get("status") in ("FAIL", "REVIEW")
         ]
 
-        if not failed_checks:
-            return {
-                "llm_reasoning": "No compliance issues detected.",
-                "resolution_type": "NO_ACTION",
-            }
-
-        # Build compact issues text for LLM
-        issues_text = "\n".join(
-            f"- {c['checkpoint']} ({c['status']}): {c['details']}"
-            for c in failed_checks
-        )
-
-        # Format prompt with template
-        prompt_str = self.prompt.format_prompt(
-            invoice_id=invoice_id,
-            issues_text=issues_text
-        ).to_string()
+        payload = {
+            "task": "invoice_compliance_classification",
+            "invoice_id": invoice_id,
+            "invoice_number": invoice_number,
+            "failed_checks": failed_checks,
+            "instructions": (
+                "Return ONLY valid JSON with keys: "
+                "violation_type, recommended_action, confidence. "
+                "No explanations outside JSON."
+            ),
+        }
 
         try:
-            # Safe backend call
-            if callable(self.llm):
-                response = self.llm(prompt_str)
-            elif hasattr(self.llm, "predict"):
-                response = self.llm.predict(prompt_str)
-            else:
-                raise TypeError("Unsupported LLM client type")
+            raw = self.llm(json.dumps(payload, indent=2))
+
+            # Ollama often adds text → extract JSON safely
+            start = raw.find("{")
+            end = raw.rfind("}")
+            parsed = json.loads(raw[start:end + 1])
 
             return {
-                "llm_reasoning": response.strip(),
-                "resolution_type": "LLM_REASONED_REVIEW",
+                "resolution": parsed
             }
 
         except Exception as e:
-            # Enterprise-safe fallback
             return {
-                "llm_reasoning": (
-                    "LLM reasoning unavailable. "
-                    "Invoice requires manual compliance review."
-                ),
-                "resolution_type": "LLM_FALLBACK",
+                "resolution": {
+                    "violation_type": "UNKNOWN",
+                    "recommended_action": "ESCALATE",
+                    "confidence": 0.0,
+                },
                 "error": str(e),
             }
-# GST_API_URL = "https://api.example.com/gst/validate"  # Example placeholder
-

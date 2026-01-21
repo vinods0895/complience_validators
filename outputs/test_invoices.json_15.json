@@ -9,5 +9,5 @@
   "recommended_action": "Request supplier to provide corrected invoice with valid GSTIN.",
   "audit_notes": [],
   "confidence_score": 1.0,
-  "llm_reasoning": "1. This is a hard compliance violation as the GSTIN format is essential for identifying the taxable entity and ensuring proper tax compliance.\n2. No, the invoice cannot be accepted without a valid GSTIN.\n3. The recommended next action is to request the supplier to provide a corrected invoice with a valid GSTIN. If the supplier is unable to provide a corrected invoice, the payment for this invoice should be withheld until the correct information is obtained."
+  "llm_reasoning": "1. This is a hard compliance violation as the GSTIN format is essential for identifying the taxable entity and ensuring proper tax compliance.\n2. No, the invoice cannot be accepted without a valid GSTIN.\n3. The recommended next action would be to request the supplier to provide a corrected invoice with a valid GSTIN. If the supplier is unable to provide a corrected invoice, the payment for this invoice should be withheld until the correct information is obtained."
 }

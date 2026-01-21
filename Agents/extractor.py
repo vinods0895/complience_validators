@@ -1,6 +1,9 @@
 import os
 import re
-from typing import List
+import json
+from typing import List, Callable, Optional
+from datetime import datetime, date
+
 from utils.logger import setup_logger
 from tools.pdf_parser import PDFParser
 from tools.ocr_parser import OCRParser
@@ -13,19 +16,24 @@ logger = setup_logger("ExtractorAgent", "outputs/logs/extractor.log")
 
 class ExtractorAgent:
     """
-    Unified extractor supporting:
+    Unified extractor agent supporting:
     - JSON (multi-invoice, structured)
     - CSV (structured)
-    - PDF / Images (OCR + heuristic)
+    - PDF / Images (OCR + heuristics + optional LLM assist)
 
     Always returns List[dict].
     """
 
-    def __init__(self):
+    def __init__(self, llm: Optional[Callable[[str], str]] = None):
         self.pdf_parser = PDFParser()
         self.ocr_parser = OCRParser()
         self.json_parser = JSONParser()
         self.csv_parser = CSVParser()
+        self.llm = llm
+
+    # -------------------------------------------------
+    # PUBLIC ENTRY
+    # -------------------------------------------------
 
     def run(self, file_path: str) -> List[dict]:
         logger.info(f"Starting extraction for {file_path}")
@@ -56,8 +64,16 @@ class ExtractorAgent:
 
         text = self._clean_text(text)
         invoice = self._extract_from_text(text)
+
+        if self.llm:
+            invoice = self._llm_assist(text, invoice)
+
         logger.info("Extraction complete (unstructured)")
         return [invoice.model_dump()]
+
+    # -------------------------------------------------
+    # JSON NORMALIZATION
+    # -------------------------------------------------
 
     def _normalize_json_batch(self, data) -> List[InvoiceModel]:
         if not isinstance(data, list):
@@ -76,12 +92,12 @@ class ExtractorAgent:
 
         invoice.invoice_id = data.get("invoice_id")
         invoice.invoice_number = data.get("invoice_number")
-        invoice.invoice_date = data.get("invoice_date")
+        invoice.invoice_date = self._parse_date(data.get("invoice_date"))
         invoice.subtotal = data.get("subtotal")
         invoice.total_tax = data.get("total_tax")
         invoice.total_amount = data.get("total_amount")
         invoice.irn = data.get("irn")
-        invoice.irn_date = data.get("irn_date")
+        invoice.irn_date = self._parse_date(data.get("irn_date"))
         invoice.qr_code_present = data.get("qr_code_present")
         invoice.payment_terms = data.get("payment_terms")
         invoice.po_reference = data.get("po_reference")
@@ -129,6 +145,10 @@ class ExtractorAgent:
 
         return invoice
 
+    # -------------------------------------------------
+    # CSV NORMALIZATION
+    # -------------------------------------------------
+
     def _normalize_csv(self, rows: list) -> InvoiceModel:
         invoice = InvoiceModel()
         if not rows:
@@ -137,13 +157,13 @@ class ExtractorAgent:
         first = rows[0]
         invoice.invoice_id = first.get("invoice_id")
         invoice.invoice_number = first.get("invoice_number")
-        invoice.invoice_date = first.get("invoice_date")
+        invoice.invoice_date = self._parse_date(first.get("invoice_date"))
         invoice.subtotal = self._safe_float(first.get("subtotal"))
         invoice.total_tax = self._safe_float(first.get("total_tax"))
         invoice.total_amount = self._safe_float(first.get("total_amount"))
         invoice.irn = first.get("irn")
-        invoice.irn_date = first.get("irn_date")
-        invoice.qr_code_present = first.get("qr_code_present") in ["true", "True", "1"]
+        invoice.irn_date = self._parse_date(first.get("irn_date"))
+        invoice.qr_code_present = first.get("qr_code_present") in ("true", "True", "1")
         invoice.payment_terms = first.get("payment_terms")
         invoice.po_reference = first.get("po_reference")
         invoice.notes = first.get("notes")
@@ -179,14 +199,11 @@ class ExtractorAgent:
                 )
             )
 
-        invoice.cgst_rate = self._safe_float(first.get("cgst_rate"))
-        invoice.cgst_amount = self._safe_float(first.get("cgst_amount"))
-        invoice.sgst_rate = self._safe_float(first.get("sgst_rate"))
-        invoice.sgst_amount = self._safe_float(first.get("sgst_amount"))
-        invoice.igst_rate = self._safe_float(first.get("igst_rate"))
-        invoice.igst_amount = self._safe_float(first.get("igst_amount"))
-
         return invoice
+
+    # -------------------------------------------------
+    # UNSTRUCTURED EXTRACTION
+    # -------------------------------------------------
 
     def _clean_text(self, text: str) -> str:
         ignore = [
@@ -206,13 +223,93 @@ class ExtractorAgent:
         lines = text.splitlines()
 
         invoice.invoice_number = self._extract_invoice_no(lines)
-        invoice.invoice_date = self._extract_date(lines)
+        invoice.invoice_date = self._parse_date(self._extract_date(lines))
         gstin = self._extract_gstin(lines)
         if gstin:
             invoice.vendor = Vendor(gstin=gstin)
         invoice.total_amount = self._extract_total(lines)
 
         return invoice
+
+    # -------------------------------------------------
+    # DATE NORMALIZATION (FIX)
+    # -------------------------------------------------
+
+    def _parse_date(self, value) -> Optional[date]:
+        if not value:
+            return None
+        if isinstance(value, date):
+            return value
+        if isinstance(value, str):
+            for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y"):
+                try:
+                    return datetime.strptime(value.strip(), fmt).date()
+                except ValueError:
+                    continue
+        return None
+
+    # -------------------------------------------------
+    # LLM ASSIST
+    # -------------------------------------------------
+
+    def _llm_assist(self, text: str, invoice: InvoiceModel) -> InvoiceModel:
+        missing = []
+
+        if not invoice.invoice_number:
+            missing.append("invoice_number")
+        if not invoice.invoice_date:
+            missing.append("invoice_date")
+        if not invoice.total_amount:
+            missing.append("total_amount")
+        if not invoice.vendor or not invoice.vendor.gstin:
+            missing.append("vendor_gstin")
+
+        if not missing:
+            return invoice
+
+        prompt = f"""
+Extract the following fields from the invoice text.
+
+Fields: {missing}
+
+Return STRICT JSON only.
+
+Invoice text:
+{text}
+"""
+
+        try:
+            response = self.llm(prompt)
+            data = self._safe_json(response)
+
+            invoice.invoice_number = invoice.invoice_number or data.get("invoice_number")
+            invoice.invoice_date = invoice.invoice_date or self._parse_date(
+                data.get("invoice_date")
+            )
+            invoice.total_amount = invoice.total_amount or self._safe_float(
+                data.get("total_amount")
+            )
+
+            if data.get("vendor_gstin"):
+                if not invoice.vendor:
+                    invoice.vendor = Vendor(gstin=data["vendor_gstin"])
+                elif not invoice.vendor.gstin:
+                    invoice.vendor.gstin = data["vendor_gstin"]
+
+        except Exception as e:
+            logger.warning(f"LLM assist failed: {e}")
+
+        return invoice
+
+    # -------------------------------------------------
+    # HELPERS
+    # -------------------------------------------------
+
+    def _safe_json(self, text: str) -> dict:
+        try:
+            return json.loads(text)
+        except Exception:
+            return {}
 
     def _extract_invoice_no(self, lines):
         for l in lines:

@@ -7,17 +7,18 @@ import re
 
 app = Flask(__name__)
 
-# -------------------------------------------------
+# =====================================================
 # PATHS
-# -------------------------------------------------
+# =====================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 MASTER_DATA_DIR = BASE_DIR / "data" / "master_data"
 
-# -------------------------------------------------
-# NORMALIZATION (CRITICAL)
-# -------------------------------------------------
+# =====================================================
+# HELPERS
+# =====================================================
+
 def normalize_hsn(raw) -> str:
-    """Normalize HSN / SAC for safe lookup."""
     return re.sub(r"\D", "", str(raw or "")).strip()
 
 def to_float(val) -> float:
@@ -26,9 +27,10 @@ def to_float(val) -> float:
     except Exception:
         return 0.0
 
-# -------------------------------------------------
+# =====================================================
 # SAFE LOADERS
-# -------------------------------------------------
+# =====================================================
+
 def safe_load_json(path):
     try:
         if path.exists():
@@ -56,8 +58,6 @@ def safe_load_gst_rates_csv(path):
 
         with open(path, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
-            print("📄 GST CSV headers:", reader.fieldnames)
-
             for row in reader:
                 hsn = normalize_hsn(row.get("hsn_sac_code"))
                 if not hsn:
@@ -75,49 +75,58 @@ def safe_load_gst_rates_csv(path):
                     "category": row.get("category"),
                     "effective_from": row.get("effective_from"),
                     "effective_to": row.get("effective_to"),
-                    "special_conditions": row.get("special_conditions"),
                     "description": row.get("description"),
                 }
-
     except Exception as e:
         print(f"[WARN] Failed loading GST rate CSV: {e}")
 
     return rates
 
-# -------------------------------------------------
-# LOAD MASTER DATA (HSN + SAC MERGED)
-# -------------------------------------------------
+# =====================================================
+# LOAD MASTER DATA
+# =====================================================
+
+# ---------- HSN / SAC ----------
 hsn_raw = safe_load_json(MASTER_DATA_DIR / "hsn_sac_codes.json")
 
 HSN_MASTER = {}
-
-# GOODS (HSN)
 for k, v in (hsn_raw.get("hsn_codes") or {}).items():
-    HSN_MASTER[normalize_hsn(k)] = {
-        **v,
-        "code_type": "HSN",
-    }
+    HSN_MASTER[normalize_hsn(k)] = {**v, "code_type": "HSN"}
 
-# SERVICES (SAC)
 for k, v in (hsn_raw.get("sac_codes") or {}).items():
-    HSN_MASTER[normalize_hsn(k)] = {
-        **v,
-        "code_type": "SAC",
-    }
+    HSN_MASTER[normalize_hsn(k)] = {**v, "code_type": "SAC"}
 
+# ---------- GST RATES ----------
 GST_RATE_MASTER = safe_load_gst_rates_csv(
     MASTER_DATA_DIR / "gst_rates_schedule.csv"
 )
 
+# ---------- COMPANY POLICY ----------
 company_policy = safe_load_yaml(
     MASTER_DATA_DIR / "company_policy.yaml"
 )
 
+# ---------- VENDOR + TDS MASTER ----------
+vendor_master = safe_load_json(
+    MASTER_DATA_DIR / "vendor_registry.json"
+)
+
+TDS_SECTIONS = {
+    s.get("section"): s
+    for s in (vendor_master.get("tds_sections") or [])
+}
+
+VENDOR_REGISTRY = {
+    v.get("gstin"): v
+    for v in (vendor_master.get("vendors") or [])
+}
+
 GSTIN_REGEX = r"\b\d{2}[A-Z0-9]{13}\b"
 
-# -------------------------------------------------
-# GSTIN REGISTRY
-# -------------------------------------------------
+# =====================================================
+# GSTIN VALIDATION
+# =====================================================
+
 @app.route("/api/gst/validate-gstin", methods=["POST"])
 def validate_gstin():
     data = request.json or {}
@@ -135,9 +144,10 @@ def validate_gstin():
         "trade_name": "Mock Vendor Pvt Ltd"
     }), 200
 
-# -------------------------------------------------
-# HSN / SAC VALIDATION (GOODS + SERVICES)
-# -------------------------------------------------
+# =====================================================
+# HSN / SAC VALIDATION
+# =====================================================
+
 @app.route("/api/gst/validate-hsn", methods=["POST"])
 def validate_hsn():
     data = request.json or {}
@@ -148,7 +158,7 @@ def validate_hsn():
 
     master = HSN_MASTER.get(hsn)
     if not master:
-        return jsonify({"error": "HSN/SAC not found in master"}), 404
+        return jsonify({"error": "HSN/SAC not found"}), 404
 
     return jsonify({
         "hsn_sac": hsn,
@@ -160,9 +170,10 @@ def validate_hsn():
         "chapter": master.get("chapter"),
     }), 200
 
-# -------------------------------------------------
+# =====================================================
 # GST RATE LOOKUP
-# -------------------------------------------------
+# =====================================================
+
 @app.route("/api/gst/rate-schedule", methods=["POST"])
 def gst_rate_schedule():
     data = request.json or {}
@@ -177,9 +188,46 @@ def gst_rate_schedule():
 
     return jsonify(rate), 200
 
-# -------------------------------------------------
+# =====================================================
+# VENDOR REGISTRY
+# =====================================================
+
+@app.route("/api/vendor/lookup", methods=["POST"])
+def vendor_lookup():
+    data = request.json or {}
+    gstin = data.get("vendor_gstin")
+
+    if not gstin:
+        return jsonify({"error": "vendor_gstin missing"}), 400
+
+    vendor = VENDOR_REGISTRY.get(gstin)
+    if not vendor:
+        return jsonify({"status": "NOT_FOUND"}), 404
+
+    return jsonify(vendor), 200
+
+# =====================================================
+# TDS SECTION LOOKUP
+# =====================================================
+
+@app.route("/api/tds/sections", methods=["POST"])
+def tds_section_lookup():
+    data = request.json or {}
+    section = data.get("tds_section")
+
+    if not section:
+        return jsonify({"error": "tds_section missing"}), 400
+
+    record = TDS_SECTIONS.get(section)
+    if not record:
+        return jsonify({"error": "TDS section not found"}), 404
+
+    return jsonify(record), 200
+
+# =====================================================
 # COMPANY POLICY
-# -------------------------------------------------
+# =====================================================
+
 @app.route("/api/policy/check", methods=["POST"])
 def check_policy():
     try:
@@ -213,21 +261,25 @@ def check_policy():
             "warning": f"Policy evaluation skipped: {e}"
         }), 200
 
-# -------------------------------------------------
-# HEALTH CHECK
-# -------------------------------------------------
+# =====================================================
+# HEALTH
+# =====================================================
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "UP",
+        "vendors_loaded": len(VENDOR_REGISTRY),
+        "tds_sections_loaded": len(TDS_SECTIONS),
         "hsn_sac_loaded": len(HSN_MASTER),
         "gst_rates_loaded": len(GST_RATE_MASTER),
         "policy_loaded": bool(company_policy),
     }), 200
 
-# -------------------------------------------------
-# RUN SERVER
-# -------------------------------------------------
+# =====================================================
+# RUN
+# =====================================================
+
 if __name__ == "__main__":
-    print("🚀 Mock Compliance Server Starting...")
+    print("Mock Compliance Server Starting...")
     app.run(host="127.0.0.1", port=5000, debug=True)
