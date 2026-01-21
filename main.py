@@ -1,85 +1,63 @@
 from Agents.extractor import ExtractorAgent
 from Agents.validator import ValidatorAgent
+from Agents.stateful_compliance import StatefulComplianceEngine
 from Agents.resolver import ResolverAgent
 from Agents.reporter import ReporterAgent
+
 from tools.state_manager import StateManager
+from tools.human_review_store import HumanReviewStore
+
+from graph.workflow import build_compliance_graph
+from graph.state import ComplianceState
 
 
 def main():
+    print("🔄 Processing invoices...\n")
+
     extractor = ExtractorAgent()
     validator = ValidatorAgent()
+
+    state_manager = StateManager()
+    stateful_engine = StatefulComplianceEngine(state_manager)
+
     resolver = ResolverAgent(llm_backend="ollama_llama3")
     reporter = ReporterAgent()
-    state_manager = StateManager()
+    human_review_store = HumanReviewStore()
 
-    file_path = "data/invoices/test_invoices.json"
-    invoices = extractor.run(file_path)
+    graph = build_compliance_graph(
+        extractor=extractor,
+        validator=validator,
+        stateful_engine=stateful_engine,
+        resolver=resolver,
+        reporter=reporter,
+        human_review_store=human_review_store,
+    )
 
-    print(f"\n🔄 Processing {len(invoices)} invoices...\n")
+    invoices = extractor.run("data/invoices/test_invoices.json")
 
     for idx, invoice in enumerate(invoices, start=1):
-        invoice_number = invoice.get("invoice_number")
-        invoice_id = invoice.get("invoice_id")
+        print(f"➡️  Invoice {idx}/{len(invoices)}: {invoice.get('invoice_number')}")
 
-        print(f"➡️  Invoice {idx}/{len(invoices)}: {invoice_number}")
+        state = ComplianceState(
+            invoice=invoice,
+            financial_year="2024-25",
+        )
 
-        # 1. Validation
-        validation_result = validator.validate_invoice(invoice)
+        # 🔑 LangGraph returns DICT
+        final_state = graph.invoke(state)
 
-        failed = [
-            c for c in validation_result["checks"]
-            if c["status"] in ("FAIL", "REVIEW")
-        ]
-
-        if failed:
-            print("   ❌ Validation issues:")
-            for c in failed:
-                print(f"     - [{c['status']}] {c['checkpoint']}: {c['details']}")
-
-        # 2. Resolver
-        if validation_result["summary"]["final_status"] in ("FAIL", "REVIEW"):
-            resolution = resolver.resolve(
-                invoice_id=invoice_id,
-                invoice_number=invoice_number,
-                validation_result=validation_result,
-            )
-        else:
-            resolution = {
-                "resolution": {
-                    "recommended_action": "ACCEPT",
-                    "confidence": 1.0,
-                }
-            }
-
-        resolution_data = resolution.get("resolution", {})
-        confidence = float(resolution_data.get("confidence", 0.0))
-        action = resolution_data.get("recommended_action", "ESCALATE")
-
-        # 3. Routing
-        if action == "REJECT" or confidence < 0.70:
-            route = "HUMAN_REVIEW"
-            human_review_id = f"HR-{invoice_number}"
-        elif confidence < 0.85:
-            route = "REQUEST_CLARIFICATION"
-            human_review_id = None
-        else:
-            route = "ACCEPT"
-            human_review_id = None
+        route = final_state.get("route")
+        confidence = final_state.get("confidence", 0.0)
 
         print(f"   🚦 Route: {route} | Confidence: {confidence}")
 
-        # 4. Reporter (FULL ARGUMENTS — FIXED)
-        report = reporter.run(
-            data=invoice,
-            validation=validation_result,
-            resolution=resolution,
-            stateful=None,
-            route=route,
-            confidence=confidence,
-            human_review_id=human_review_id,
-        )
+        resolution = final_state.get("resolution", {})
+        resolution_data = resolution.get("resolution", {})
 
-    print("\n✅ Processing complete.\n")
+        if resolution_data:
+            print(f"   🧠 Reason: {resolution_data.get('reasoning')}")
+
+        print("")
 
 
 if __name__ == "__main__":

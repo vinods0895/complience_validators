@@ -7,20 +7,14 @@ from graph.state import ComplianceState
 # -------------------------------------------------
 
 def extract_node(state: ComplianceState, extractor: Any) -> ComplianceState:
-    """
-    Extract invoice data only if not already present.
-    This prevents re-extraction during batch / API runs.
-    """
-    if state.invoice is not None:
-        return state
-
-    invoices = extractor.run(state.file_path)
-    state.invoice = invoices[0]
+    if state.invoice is None:
+        invoices = extractor.run(state.file_path)
+        state.invoice = invoices[0]
     return state
 
 
 # -------------------------------------------------
-# VALIDATE NODE
+# VALIDATE NODE (DETERMINISTIC)
 # -------------------------------------------------
 
 def validate_node(state: ComplianceState, validator: Any) -> ComplianceState:
@@ -32,10 +26,7 @@ def validate_node(state: ComplianceState, validator: Any) -> ComplianceState:
 # STATEFUL COMPLIANCE NODE
 # -------------------------------------------------
 
-def stateful_node(
-    state: ComplianceState,
-    stateful_engine: Any,
-) -> ComplianceState:
+def stateful_node(state: ComplianceState, stateful_engine: Any) -> ComplianceState:
     try:
         state.stateful = stateful_engine.run(
             invoice=state.invoice,
@@ -47,16 +38,17 @@ def stateful_node(
 
 
 # -------------------------------------------------
-# RESOLVER NODE (LLM)
+# RESOLVER NODE (LLM = EXPLAIN ONLY)
 # -------------------------------------------------
 
 def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
-    if resolver.should_resolve(state.validation):
+    final_status = state.validation.get("summary", {}).get("final_status")
+
+    if final_status in ("FAIL", "REVIEW"):
         state.resolution = resolver.resolve(
             invoice_id=state.invoice.get("invoice_id"),
             invoice_number=state.invoice.get("invoice_number"),
             validation_result=state.validation,
-            stateful_result=state.stateful,
         )
     else:
         state.resolution = {
@@ -67,22 +59,31 @@ def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
             }
         }
 
-    resolution_data = state.resolution.get("resolution", {})
-    state.confidence = resolution_data.get("confidence", 0.0)
-    state.route = resolution_data.get("recommended_action")
+    res = state.resolution.get("resolution", {})
+    state.confidence = res.get("confidence", 0.0)
+
+    # 🚨 CRITICAL FIX: ROUTING CONTROLLED BY VALIDATOR
+    if final_status == "FAIL":
+        state.route = "REJECT"
+
+    elif final_status == "REVIEW":
+        state.route = "REQUEST_CLARIFICATION"
+
+    else:
+        state.route = "ACCEPT"
 
     return state
 
 
 # -------------------------------------------------
-# ROUTING DECISION
+# ROUTING DECISION FOR LANGGRAPH
 # -------------------------------------------------
 
 def route_decision(state: ComplianceState) -> str:
-    if state.route == "REJECT" or state.confidence < 0.70:
+    if state.route == "REJECT":
         return "human_review"
 
-    if state.confidence < 0.85:
+    if state.route == "REQUEST_CLARIFICATION":
         return "clarification"
 
     return "auto_approve"
@@ -92,10 +93,7 @@ def route_decision(state: ComplianceState) -> str:
 # HUMAN REVIEW NODE
 # -------------------------------------------------
 
-def human_review_node(
-    state: ComplianceState,
-    store: Any,
-) -> ComplianceState:
+def human_review_node(state: ComplianceState, store: Any) -> ComplianceState:
     review_id = store.create_review(
         invoice_id=state.invoice.get("invoice_id"),
         invoice_number=state.invoice.get("invoice_number"),
@@ -112,10 +110,7 @@ def human_review_node(
 # REPORT NODE
 # -------------------------------------------------
 
-def report_node(
-    state: ComplianceState,
-    reporter: Any,
-) -> ComplianceState:
+def report_node(state: ComplianceState, reporter: Any) -> ComplianceState:
     state.report = reporter.run(
         data=state.invoice,
         validation=state.validation,
