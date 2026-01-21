@@ -1,7 +1,29 @@
 from typing import List, Optional
-from datetime import date
-from pydantic import BaseModel, Field, ConfigDict
+from datetime import date, datetime
+from pydantic import BaseModel, Field, ConfigDict, field_validator
 
+
+# -------------------------------------------------
+# Helper: flexible date parsing
+# -------------------------------------------------
+
+def parse_date(value):
+    if value is None:
+        return None
+    if isinstance(value, date):
+        return value
+    if isinstance(value, str):
+        for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y"):
+            try:
+                return datetime.strptime(value, fmt).date()
+            except ValueError:
+                continue
+    return None
+
+
+# -------------------------------------------------
+# Line Item
+# -------------------------------------------------
 
 class LineItem(BaseModel):
     description: Optional[str] = None
@@ -20,6 +42,10 @@ class LineItem(BaseModel):
     igst_amount: Optional[float] = None
 
 
+# -------------------------------------------------
+# Vendor
+# -------------------------------------------------
+
 class Vendor(BaseModel):
     name: Optional[str] = None
     gstin: Optional[str] = None
@@ -27,16 +53,24 @@ class Vendor(BaseModel):
     address: Optional[str] = None
 
 
+# -------------------------------------------------
+# Buyer
+# -------------------------------------------------
+
 class Buyer(BaseModel):
     name: Optional[str] = None
     gstin: Optional[str] = None
     address: Optional[str] = None
 
 
+# -------------------------------------------------
+# Invoice Model
+# -------------------------------------------------
+
 class InvoiceModel(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
-        extra="ignore"
+        extra="ignore",
     )
 
     invoice_id: Optional[str] = None
@@ -70,3 +104,12 @@ class InvoiceModel(BaseModel):
     transport_mode: Optional[str] = None
     vehicle_number: Optional[str] = None
     eway_bill: Optional[str] = None
+
+    # -----------------------------
+    # Date validators
+    # -----------------------------
+
+    @field_validator("invoice_date", "irn_date", mode="before")
+    @classmethod
+    def validate_dates(cls, value):
+        return parse_date(value)
