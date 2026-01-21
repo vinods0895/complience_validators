@@ -1,22 +1,31 @@
-from typing import Dict, Any, Optional
+# graph/state.py
+
+from typing import Optional, Dict, Any
 from pydantic import BaseModel
 
 
 class ComplianceState(BaseModel):
-    # Input
-    file_path: str
-    financial_year: str
-
-    # Core data
+    # -------- INPUTS --------
+    file_path: Optional[str] = None
     invoice: Optional[Dict[str, Any]] = None
-    validation: Optional[Dict[str, Any]] = None
-    stateful: Optional[Dict[str, Any]] = None
-    resolution: Optional[Dict[str, Any]] = None
+    financial_year: Optional[str] = None
 
-    # Routing
+    # -------- VALIDATION --------
+    validation: Optional[Dict[str, Any]] = None
+
+    # -------- STATEFUL --------
+    stateful: Optional[Dict[str, Any]] = None
+
+    # -------- RESOLUTION --------
+    resolution: Optional[Dict[str, Any]] = None
+    confidence: float = 0.0
     route: Optional[str] = None
-    confidence: Optional[float] = None
+
+    # -------- HUMAN REVIEW --------
     human_review_id: Optional[str] = None
 
-    # Output
+    # -------- FINAL REPORT --------
     report: Optional[Dict[str, Any]] = None
+
+    class Config:
+        extra = "forbid"
