@@ -31,9 +31,9 @@ class ExtractorAgent:
         self.csv_parser = CSVParser()
         self.llm = llm
 
-    # -------------------------------------------------
+  
     # PUBLIC ENTRY
-    # -------------------------------------------------
+     
 
     def run(self, file_path: str) -> List[dict]:
         logger.info(f"Starting extraction for {file_path}")
@@ -71,9 +71,8 @@ class ExtractorAgent:
         logger.info("Extraction complete (unstructured)")
         return [invoice.model_dump()]
 
-    # -------------------------------------------------
     # JSON NORMALIZATION
-    # -------------------------------------------------
+   
 
     def _normalize_json_batch(self, data) -> List[InvoiceModel]:
         if not isinstance(data, list):
@@ -145,9 +144,8 @@ class ExtractorAgent:
 
         return invoice
 
-    # -------------------------------------------------
     # CSV NORMALIZATION
-    # -------------------------------------------------
+    
 
     def _normalize_csv(self, rows: list) -> InvoiceModel:
         invoice = InvoiceModel()
@@ -201,9 +199,9 @@ class ExtractorAgent:
 
         return invoice
 
-    # -------------------------------------------------
+     
     # UNSTRUCTURED EXTRACTION
-    # -------------------------------------------------
+     
 
     def _clean_text(self, text: str) -> str:
         ignore = [
@@ -231,9 +229,9 @@ class ExtractorAgent:
 
         return invoice
 
-    # -------------------------------------------------
+     
     # DATE NORMALIZATION (FIX)
-    # -------------------------------------------------
+     
 
     def _parse_date(self, value) -> Optional[date]:
         if not value:
@@ -248,9 +246,9 @@ class ExtractorAgent:
                     continue
         return None
 
-    # -------------------------------------------------
+     
     # LLM ASSIST
-    # -------------------------------------------------
+     
 
     def _llm_assist(self, text: str, invoice: InvoiceModel) -> InvoiceModel:
         missing = []
@@ -301,9 +299,9 @@ Invoice text:
 
         return invoice
 
-    # -------------------------------------------------
+     
     # HELPERS
-    # -------------------------------------------------
+     
 
     def _safe_json(self, text: str) -> dict:
         try:

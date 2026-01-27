@@ -6,17 +6,13 @@ import csv
 import re
 
 app = Flask(__name__)
-
-# =====================================================
-# PATHS
-# =====================================================
+  
+# PATHS  
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MASTER_DATA_DIR = BASE_DIR / "data" / "master_data"
-
-# =====================================================
-# HELPERS
-# =====================================================
+  
+# HELPERS  
 
 def normalize_hsn(raw) -> str:
     return re.sub(r"\D", "", str(raw or "")).strip()
@@ -26,10 +22,8 @@ def to_float(val) -> float:
         return float(val or 0)
     except Exception:
         return 0.0
-
-# =====================================================
-# SAFE LOADERS
-# =====================================================
+  
+# SAFE LOADERS  
 
 def safe_load_json(path):
     try:
@@ -81,10 +75,8 @@ def safe_load_gst_rates_csv(path):
         print(f"[WARN] Failed loading GST rate CSV: {e}")
 
     return rates
-
-# =====================================================
-# LOAD MASTER DATA
-# =====================================================
+  
+# LOAD MASTER DATA  
 
 # ---------- HSN / SAC ----------
 hsn_raw = safe_load_json(MASTER_DATA_DIR / "hsn_sac_codes.json")
@@ -122,10 +114,8 @@ VENDOR_REGISTRY = {
 }
 
 GSTIN_REGEX = r"\b\d{2}[A-Z0-9]{13}\b"
-
-# =====================================================
-# GSTIN VALIDATION
-# =====================================================
+  
+# GSTIN VALIDATION  
 
 @app.route("/api/gst/validate-gstin", methods=["POST"])
 def validate_gstin():
@@ -143,10 +133,8 @@ def validate_gstin():
         "status": "ACTIVE",
         "trade_name": "Mock Vendor Pvt Ltd"
     }), 200
-
-# =====================================================
-# HSN / SAC VALIDATION
-# =====================================================
+  
+# HSN / SAC VALIDATION  
 
 @app.route("/api/gst/validate-hsn", methods=["POST"])
 def validate_hsn():
@@ -169,10 +157,8 @@ def validate_hsn():
         "group": master.get("group"),
         "chapter": master.get("chapter"),
     }), 200
-
-# =====================================================
-# GST RATE LOOKUP
-# =====================================================
+  
+# GST RATE LOOKUP  
 
 @app.route("/api/gst/rate-schedule", methods=["POST"])
 def gst_rate_schedule():
@@ -187,10 +173,8 @@ def gst_rate_schedule():
         return jsonify({"error": "GST rate not found"}), 404
 
     return jsonify(rate), 200
-
-# =====================================================
-# VENDOR REGISTRY
-# =====================================================
+  
+# VENDOR REGISTRY  
 
 @app.route("/api/vendor/lookup", methods=["POST"])
 def vendor_lookup():
@@ -205,10 +189,8 @@ def vendor_lookup():
         return jsonify({"status": "NOT_FOUND"}), 404
 
     return jsonify(vendor), 200
-
-# =====================================================
-# TDS SECTION LOOKUP
-# =====================================================
+  
+# TDS SECTION LOOKUP  
 
 @app.route("/api/tds/sections", methods=["POST"])
 def tds_section_lookup():
@@ -223,10 +205,8 @@ def tds_section_lookup():
         return jsonify({"error": "TDS section not found"}), 404
 
     return jsonify(record), 200
-
-# =====================================================
-# COMPANY POLICY
-# =====================================================
+  
+# COMPANY POLICY  
 
 @app.route("/api/policy/check", methods=["POST"])
 def check_policy():
@@ -260,10 +240,8 @@ def check_policy():
             "compliant": True,
             "warning": f"Policy evaluation skipped: {e}"
         }), 200
-
-# =====================================================
-# HEALTH
-# =====================================================
+  
+# HEALTH  
 
 @app.route("/health", methods=["GET"])
 def health():
@@ -275,10 +253,8 @@ def health():
         "gst_rates_loaded": len(GST_RATE_MASTER),
         "policy_loaded": bool(company_policy),
     }), 200
-
-# =====================================================
-# RUN
-# =====================================================
+  
+# RUN  
 
 if __name__ == "__main__":
     print("Mock Compliance Server Starting...")

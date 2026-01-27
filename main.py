@@ -12,7 +12,7 @@ from graph.state import ComplianceState
 
 
 def main():
-    print("🔄 Processing invoices...\n")
+    print(" Processing invoices...\n")
 
     extractor = ExtractorAgent()
     validator = ValidatorAgent()
@@ -20,8 +20,10 @@ def main():
     state_manager = StateManager()
     stateful_engine = StatefulComplianceEngine(state_manager)
 
-    resolver = ResolverAgent(llm_backend="ollama_llama3")
-    reporter = ReporterAgent()
+    # LLM
+    resolver = ResolverAgent(llm_backend="ollama_deepseek_r1")
+    reporter = ReporterAgent(llm_backend="ollama_deepseek_r1")
+
     human_review_store = HumanReviewStore()
 
     graph = build_compliance_graph(
@@ -43,19 +45,23 @@ def main():
             financial_year="2024-25",
         )
 
-        # 🔑 LangGraph returns DICT
+        #  LangGraph returns dict
         final_state = graph.invoke(state)
 
-        route = final_state.get("route")
-        confidence = final_state.get("confidence", 0.0)
+        route = final_state.get("route", "REVIEW")
+        confidence = final_state.get("confidence") or 0.3
 
-        print(f"   🚦 Route: {route} | Confidence: {confidence}")
+        print(f"    Route: {route} | Confidence: {confidence}")
 
         resolution = final_state.get("resolution", {})
         resolution_data = resolution.get("resolution", {})
 
         if resolution_data:
             print(f"   🧠 Reason: {resolution_data.get('reasoning')}")
+
+        llm_report = final_state.get("llm_report")
+        if llm_report:
+            print(f"    LLM Summary: {llm_report.get('summary')}")
 
         print("")
 
