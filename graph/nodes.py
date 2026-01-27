@@ -2,9 +2,9 @@ from typing import Any
 from graph.state import ComplianceState
 
 
-# -------------------------------------------------
+  
 # EXTRACT NODE
-# -------------------------------------------------
+  
 
 def extract_node(state: ComplianceState, extractor: Any) -> ComplianceState:
     if state.invoice is None:
@@ -13,18 +13,18 @@ def extract_node(state: ComplianceState, extractor: Any) -> ComplianceState:
     return state
 
 
-# -------------------------------------------------
+  
 # VALIDATE NODE (DETERMINISTIC)
-# -------------------------------------------------
+  
 
 def validate_node(state: ComplianceState, validator: Any) -> ComplianceState:
     state.validation = validator.validate_invoice(state.invoice)
     return state
 
 
-# -------------------------------------------------
+  
 # STATEFUL COMPLIANCE NODE
-# -------------------------------------------------
+  
 
 def stateful_node(state: ComplianceState, stateful_engine: Any) -> ComplianceState:
     try:
@@ -37,9 +37,9 @@ def stateful_node(state: ComplianceState, stateful_engine: Any) -> ComplianceSta
     return state
 
 
-# -------------------------------------------------
-# RESOLVER NODE (LLM = EXPLAIN ONLY)
-# -------------------------------------------------
+  
+# RESOLVER NODE (LLM = REASONING ONLY)
+  
 
 def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
     final_status = state.validation.get("summary", {}).get("final_status")
@@ -60,9 +60,9 @@ def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
         }
 
     res = state.resolution.get("resolution", {})
-    state.confidence = res.get("confidence", 0.0)
+    state.confidence = res.get("confidence") or 0.3
 
-    # 🚨 CRITICAL FIX: ROUTING CONTROLLED BY VALIDATOR
+    # 🚦 ROUTING IS CONTROLLED BY VALIDATOR (NOT LLM)
     if final_status == "FAIL":
         state.route = "REJECT"
 
@@ -75,9 +75,9 @@ def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
     return state
 
 
-# -------------------------------------------------
+  
 # ROUTING DECISION FOR LANGGRAPH
-# -------------------------------------------------
+  
 
 def route_decision(state: ComplianceState) -> str:
     if state.route == "REJECT":
@@ -89,9 +89,9 @@ def route_decision(state: ComplianceState) -> str:
     return "auto_approve"
 
 
-# -------------------------------------------------
+  
 # HUMAN REVIEW NODE
-# -------------------------------------------------
+  
 
 def human_review_node(state: ComplianceState, store: Any) -> ComplianceState:
     review_id = store.create_review(
@@ -106,18 +106,16 @@ def human_review_node(state: ComplianceState, store: Any) -> ComplianceState:
     return state
 
 
-# -------------------------------------------------
-# REPORT NODE
-# -------------------------------------------------
+  
+# REPORT NODE (PURE FORMAT + EXPLAIN)
+  
 
 def report_node(state: ComplianceState, reporter: Any) -> ComplianceState:
     state.report = reporter.run(
         data=state.invoice,
         validation=state.validation,
-        resolution=state.resolution,
+        resolution_wrapper=state.resolution,  # ✅ correct
         stateful=state.stateful,
-        route=state.route,
-        confidence=state.confidence,
         human_review_id=state.human_review_id,
     )
     return state
