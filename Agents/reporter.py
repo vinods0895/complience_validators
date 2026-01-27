@@ -1,4 +1,3 @@
-# Agents/reporter.py
 
 import json
 from typing import Dict, Any, Optional
