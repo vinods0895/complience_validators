@@ -1,0 +1,1001 @@
+[
+  {
+    "invoice_id": "INV-2024-0001",
+    "invoice_number": "TS/MH/2024/001234",
+    "vendor_gstin": null,
+    "total_amount": 590000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 590000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:20:14.964446Z"
+  },
+  {
+    "invoice_id": "INV-2024-0002",
+    "invoice_number": "GL/DEL/24-25/5678",
+    "vendor_gstin": null,
+    "total_amount": 47250,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 47250.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:20:58.837277Z"
+  },
+  {
+    "invoice_id": "INV-2024-0003",
+    "invoice_number": "SC/NOI/2024/789",
+    "vendor_gstin": null,
+    "total_amount": 236000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 236000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:21:46.209580Z"
+  },
+  {
+    "invoice_id": "INV-2024-0004",
+    "invoice_number": "QS/MUM/2425/0042",
+    "vendor_gstin": null,
+    "total_amount": 17850,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 17850.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:22:35.320137Z"
+  },
+  {
+    "invoice_id": "INV-2024-0001",
+    "invoice_number": "TS/MH/2024/001234",
+    "vendor_gstin": null,
+    "total_amount": 590000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 590000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:24:34.998623+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0002",
+    "invoice_number": "GL/DEL/24-25/5678",
+    "vendor_gstin": null,
+    "total_amount": 47250,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 47250.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:25:29.406328+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0003",
+    "invoice_number": "SC/NOI/2024/789",
+    "vendor_gstin": null,
+    "total_amount": 236000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 236000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:26:18.253061+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0004",
+    "invoice_number": "QS/MUM/2425/0042",
+    "vendor_gstin": null,
+    "total_amount": 17850,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 17850.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:27:19.011563+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0005",
+    "invoice_number": "CST/CHN/2024/4455",
+    "vendor_gstin": null,
+    "total_amount": 413000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 413000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:28:10.909696+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0006",
+    "invoice_number": "ABC/BLR/24-25/0099",
+    "vendor_gstin": null,
+    "total_amount": 354000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 354000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:29:05.916488+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0007",
+    "invoice_number": "OTP/2024/INV-0023",
+    "vendor_gstin": null,
+    "total_amount": 709750,
+    "route": "REJECT",
+    "confidence": 0.3,
+    "human_review_id": null,
+    "resolution": {
+      "invoice_id": "INV-2024-0007",
+      "invoice_number": "OTP/2024/INV-0023",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN active",
+          "Vendor registry",
+          "Subtotal consistency",
+          "Tax calculation",
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {}
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:30:22.545117+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0008",
+    "invoice_number": "RKE/2024-25/0156",
+    "vendor_gstin": null,
+    "total_amount": 53100,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 53100.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:31:23.321127+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0009",
+    "invoice_number": "PR/MUM/2024/RENT-10",
+    "vendor_gstin": null,
+    "total_amount": 531000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 531000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:32:23.489591+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0010",
+    "invoice_number": "TS/MH/2024/001235",
+    "vendor_gstin": null,
+    "total_amount": 590000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 1180000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:33:30.722489+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0001",
+    "invoice_number": "TS/MH/2024/001234",
+    "vendor_gstin": null,
+    "total_amount": 590000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 590000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:37:20.556722+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0002",
+    "invoice_number": "GL/DEL/24-25/5678",
+    "vendor_gstin": null,
+    "total_amount": 47250,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 47250.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:38:23.171777+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0003",
+    "invoice_number": "SC/NOI/2024/789",
+    "vendor_gstin": null,
+    "total_amount": 236000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 236000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:39:40.771082+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0004",
+    "invoice_number": "QS/MUM/2425/0042",
+    "vendor_gstin": null,
+    "total_amount": 17850,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 17850.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:40:36.099398+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0005",
+    "invoice_number": "CST/CHN/2024/4455",
+    "vendor_gstin": null,
+    "total_amount": 413000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 413000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:41:06.526109+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0006",
+    "invoice_number": "ABC/BLR/24-25/0099",
+    "vendor_gstin": null,
+    "total_amount": 354000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 354000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:42:11.969916+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0007",
+    "invoice_number": "OTP/2024/INV-0023",
+    "vendor_gstin": null,
+    "total_amount": 709750,
+    "route": "REJECT",
+    "confidence": 0.3,
+    "human_review_id": null,
+    "resolution": {
+      "invoice_id": "INV-2024-0007",
+      "invoice_number": "OTP/2024/INV-0023",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN active",
+          "Vendor registry",
+          "Subtotal consistency",
+          "Tax calculation",
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {}
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:43:07.191488+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0008",
+    "invoice_number": "RKE/2024-25/0156",
+    "vendor_gstin": null,
+    "total_amount": 53100,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 53100.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:44:21.454526+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0009",
+    "invoice_number": "PR/MUM/2024/RENT-10",
+    "vendor_gstin": null,
+    "total_amount": 531000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 531000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:45:09.921789+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0010",
+    "invoice_number": "TS/MH/2024/001235",
+    "vendor_gstin": null,
+    "total_amount": 590000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 1180000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:45:52.908058+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0011",
+    "invoice_number": "MM/MUM/2024/8899",
+    "vendor_gstin": null,
+    "total_amount": 767000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 767000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:46:40.696107+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0012",
+    "invoice_number": "TS/KA/2024/BLR-0088",
+    "vendor_gstin": null,
+    "total_amount": 330400,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 330400.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:47:31.101791+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0013",
+    "invoice_number": "HSI/MH/2024/MED-445",
+    "vendor_gstin": null,
+    "total_amount": 89600,
+    "route": "REJECT",
+    "confidence": 0.6,
+    "human_review_id": null,
+    "resolution": {
+      "invoice_id": "INV-2024-0013",
+      "invoice_number": "HSI/MH/2024/MED-445",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.6,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.6,
+        "missing_fields": [
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Request manual review"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 89600.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:48:22.479597+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0014",
+    "invoice_number": "GL/DEL/24-25/5650",
+    "vendor_gstin": null,
+    "total_amount": 85000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": true,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 132250.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:49:00.556463+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0015",
+    "invoice_number": "TS/MH/2024/001237",
+    "vendor_gstin": null,
+    "total_amount": 1416000,
+    "route": "ACCEPT",
+    "confidence": 1.0,
+    "human_review_id": null,
+    "resolution": {
+      "resolution": {
+        "violation_type": "NONE",
+        "recommended_action": "ACCEPT",
+        "confidence": 1.0
+      }
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": true,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 2596000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:50:03.024097+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0016",
+    "invoice_number": "SC/NOI/2024/790",
+    "vendor_gstin": null,
+    "total_amount": 177000,
+    "route": "REJECT",
+    "confidence": 0.3,
+    "human_review_id": null,
+    "resolution": {
+      "invoice_id": "INV-2024-0016",
+      "invoice_number": "SC/NOI/2024/790",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN format",
+          "GSTIN active",
+          "Vendor registry",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN format (HIGH): Invalid GSTIN format; GSTIN active (HIGH): Invalid GSTIN format; Vendor registry (HIGH): Vendor not found in registry; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 177000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:51:33.117955+00:00"
+  },
+  {
+    "invoice_id": "INV-2024-0017",
+    "invoice_number": "ABC/BLR/24-25/0100",
+    "vendor_gstin": null,
+    "total_amount": 2800000,
+    "route": "REJECT",
+    "confidence": 0.6,
+    "human_review_id": null,
+    "resolution": {
+      "invoice_id": "INV-2024-0017",
+      "invoice_number": "ABC/BLR/24-25/0100",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.6,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.6,
+        "missing_fields": [
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 995421; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Request manual review"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "validation_summary": null,
+    "stateful": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 3154000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "llm_report": null,
+    "generated_at": "2026-01-28T04:52:43.599806+00:00"
+  }
+]

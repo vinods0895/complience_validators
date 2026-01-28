@@ -4602,5 +4602,679 @@
     "status": "PENDING",
     "created_at": "2026-01-27T07:43:48.342450Z",
     "human_decision": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-8dc1d203",
+    "invoice_id": "INV-2024-0007",
+    "invoice_number": "OTP/2024/INV-0023",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.3,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "GSTIN missing"
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Vendor GSTIN missing"
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Subtotal missing"
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Tax missing"
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Missing HSN at line 0"
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "invoice_id": "INV-2024-0007",
+      "invoice_number": "OTP/2024/INV-0023",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN active",
+          "Vendor registry",
+          "Subtotal consistency",
+          "Tax calculation",
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {}
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-01-28T04:30:22.532369Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-be659d58",
+    "invoice_id": "INV-2024-0007",
+    "invoice_number": "OTP/2024/INV-0023",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.3,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "GSTIN missing"
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Vendor GSTIN missing"
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Subtotal missing"
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Tax missing"
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Missing HSN at line 0"
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "invoice_id": "INV-2024-0007",
+      "invoice_number": "OTP/2024/INV-0023",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN active",
+          "Vendor registry",
+          "Subtotal consistency",
+          "Tax calculation",
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {}
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-01-28T04:43:07.175645Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-1d02dc78",
+    "invoice_id": "INV-2024-0013",
+    "invoice_number": "HSI/MH/2024/MED-445",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.6,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Invalid HSN 90181990"
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "invoice_id": "INV-2024-0013",
+      "invoice_number": "HSI/MH/2024/MED-445",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.6,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.6,
+        "missing_fields": [
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Request manual review"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 89600.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-01-28T04:48:22.459997Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-da784d10",
+    "invoice_id": "INV-2024-0016",
+    "invoice_number": "SC/NOI/2024/790",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.3,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Invalid GSTIN format"
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Invalid GSTIN format"
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Vendor not found in registry"
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "invoice_id": "INV-2024-0016",
+      "invoice_number": "SC/NOI/2024/790",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.3,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.3,
+        "missing_fields": [
+          "GSTIN format",
+          "GSTIN active",
+          "Vendor registry",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: GSTIN format (HIGH): Invalid GSTIN format; GSTIN active (HIGH): Invalid GSTIN format; Vendor registry (HIGH): Vendor not found in registry; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Verify supplier GSTIN details"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 177000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-01-28T04:51:33.105327Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-317dc55a",
+    "invoice_id": "INV-2024-0017",
+    "invoice_number": "ABC/BLR/24-25/0100",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.6,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Invalid HSN 995421"
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "invoice_id": "INV-2024-0017",
+      "invoice_number": "ABC/BLR/24-25/0100",
+      "route": "HUMAN_REVIEW",
+      "confidence": 0.6,
+      "resolution": {
+        "violation_type": "DOCUMENTATION_GAP",
+        "recommended_action": "REQUEST_CLARIFICATION",
+        "confidence": 0.6,
+        "missing_fields": [
+          "HSN/SAC",
+          "TDS section"
+        ],
+        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 995421; TDS section (MEDIUM): TDS section not provided",
+        "actions_required": [
+          "Request manual review"
+        ]
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 3154000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-01-28T04:52:43.585452Z",
+    "updated_at": null
   }
 ]

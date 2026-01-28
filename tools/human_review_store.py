@@ -1,25 +1,30 @@
 import json
 import uuid
 from datetime import datetime
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+from pathlib import Path
+import threading
 
 
 class HumanReviewStore:
     """
-    Persistent store for HUMAN_REVIEW cases.
+    Persistent, audit-safe HUMAN_REVIEW store
     """
 
+    _lock = threading.Lock()
+
     def __init__(self, path: str = "data/human_reviews.json"):
-        self.path = path
+        self.path = Path(path)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
 
-    def _load(self) -> List[Dict]:
-        try:
-            with open(self.path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return []
+        if not self.path.exists():
+            self._write([])
 
-    def _save(self, records: List[Dict]):
+    def _read(self) -> List[Dict]:
+        with open(self.path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def _write(self, records: List[Dict]):
         with open(self.path, "w", encoding="utf-8") as f:
             json.dump(records, f, indent=2)
 
@@ -30,25 +35,49 @@ class HumanReviewStore:
         confidence: float,
         validation: Dict[str, Any],
         resolution: Dict[str, Any],
-        stateful: Dict[str, Any] | None,
+        stateful: Optional[Dict[str, Any]],
     ) -> str:
+        with self._lock:
+            records = self._read()
 
-        records = self._load()
-        review_id = f"HR-{uuid.uuid4().hex[:8]}"
+            review_id = f"HR-{uuid.uuid4().hex[:8]}"
 
-        records.append({
-            "review_id": review_id,
-            "invoice_id": invoice_id,
-            "invoice_number": invoice_number,
-            "route": "HUMAN_REVIEW",
-            "confidence": confidence,
-            "validation_snapshot": validation,
-            "resolution_snapshot": resolution,
-            "stateful_snapshot": stateful,
-            "status": "PENDING",
-            "created_at": datetime.utcnow().isoformat() + "Z",
-            "human_decision": None,
-        })
+            records.append({
+                "schema_version": "1.0",
+                "review_id": review_id,
+                "invoice_id": invoice_id,
+                "invoice_number": invoice_number,
+                "route": "HUMAN_REVIEW",
+                "confidence": confidence,
+                "validation_snapshot": validation,
+                "resolution_snapshot": resolution,
+                "stateful_snapshot": stateful,
+                "status": "PENDING",
+                "human_decision": None,
+                "created_at": datetime.utcnow().isoformat() + "Z",
+                "updated_at": None,
+            })
 
-        self._save(records)
-        return review_id
+            self._write(records)
+            return review_id
+
+    def submit_decision(
+        self,
+        review_id: str,
+        decision: str,
+        comments: Optional[str] = None,
+    ) -> bool:
+        with self._lock:
+            records = self._read()
+            for r in records:
+                if r["review_id"] == review_id:
+                    r["status"] = "COMPLETED"
+                    r["human_decision"] = {
+                        "decision": decision,
+                        "comments": comments,
+                        "decided_at": datetime.utcnow().isoformat() + "Z",
+                    }
+                    r["updated_at"] = datetime.utcnow().isoformat() + "Z"
+                    self._write(records)
+                    return True
+            return False

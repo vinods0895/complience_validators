@@ -1,22 +1,23 @@
 import json
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from llm_clients import llm_clients
 
 
 class ResolverAgent:
     """
-    LLM-based resolver.
+    LLM-based resolver (Decision Authority).
 
-    Responsibilities:
-    - Explain WHY an invoice needs action
-    - Assign explainable confidence scores
-    - Never hardcode rejection reasons
-    - Never return confidence = 0.0
-    - Fall back to fact-based reasoning if LLM fails
+    Guarantees:
+    - Confidence is ALWAYS normalized (0.30 ≤ confidence ≤ 0.95)
+    - Route is ALWAYS derived from confidence + recommendation
+    - No downstream component mutates confidence or route
+    - Safe fallback if LLM fails
     """
 
     MIN_CONFIDENCE = 0.30
     MAX_CONFIDENCE = 0.95
+
+    HUMAN_REVIEW_THRESHOLD = 0.60
 
     def __init__(self, llm_backend: str = "ollama_deepseek_r1"):
         if llm_backend not in llm_clients:
@@ -26,29 +27,30 @@ class ResolverAgent:
             )
         self.llm = llm_clients[llm_backend]
 
-     
-    # GATING LOGIC
-     
+    
+    # GATING
+    
 
     def should_resolve(self, validation_result: Dict) -> bool:
         return validation_result.get("summary", {}).get(
             "final_status"
         ) in ("REVIEW", "FAIL")
 
-     
-    # CORE RESOLUTION LOGIC
-     
+    
+    # CORE RESOLUTION
+    
 
     def resolve(
         self,
         invoice_id: str,
         invoice_number: str,
         validation_result: Dict,
-        stateful_result: Dict | None = None,
+        stateful_result: Optional[Dict] = None,
     ) -> Dict[str, Any]:
 
         failed_checks = self._collect_failed_checks(validation_result)
 
+        # ✅ Fast path: clean invoice
         if not failed_checks:
             return self._auto_accept(invoice_id, invoice_number)
 
@@ -60,28 +62,36 @@ class ResolverAgent:
             response = self.llm(json.dumps(prompt, indent=2))
             parsed = self._safe_json(response)
 
-            confidence = self._clamp_confidence(parsed.get("confidence"))
+            confidence = self._normalize_confidence(
+                parsed.get("confidence")
+            )
+
+            resolution = {
+                "violation_type": parsed.get(
+                    "violation_type", "DOCUMENTATION_GAP"
+                ),
+                "recommended_action": parsed.get(
+                    "recommended_action", "REQUEST_CLARIFICATION"
+                ),
+                "confidence": confidence,
+                "missing_fields": parsed.get("missing_fields", []),
+                "reasoning": parsed.get(
+                    "reasoning",
+                    "Compliance gaps detected based on validation checks.",
+                ),
+                "actions_required": parsed.get(
+                    "actions_required", []
+                ),
+            }
+
+            route = self._decide_route(resolution, confidence)
 
             return {
                 "invoice_id": invoice_id,
                 "invoice_number": invoice_number,
-                "resolution": {
-                    "violation_type": parsed.get(
-                        "violation_type", "DOCUMENTATION_GAP"
-                    ),
-                    "recommended_action": parsed.get(
-                        "recommended_action", "REQUEST_CLARIFICATION"
-                    ),
-                    "confidence": confidence,
-                    "missing_fields": parsed.get("missing_fields", []),
-                    "reasoning": parsed.get(
-                        "reasoning",
-                        "Compliance gaps detected based on validation checks.",
-                    ),
-                    "actions_required": parsed.get(
-                        "actions_required", []
-                    ),
-                },
+                "route": route,
+                "confidence": confidence,
+                "resolution": resolution,
             }
 
         except Exception as e:
@@ -89,9 +99,9 @@ class ResolverAgent:
                 invoice_id, invoice_number, validation_result, error=str(e)
             )
 
-     
-    # PROMPT CONSTRUCTION
-     
+    
+    # PROMPT
+    
 
     def _build_prompt(
         self,
@@ -130,15 +140,15 @@ class ResolverAgent:
                     "REJECT",
                 ],
                 "confidence": "float (0-1)",
-                "missing_fields": "list of strings",
+                "missing_fields": "list[str]",
                 "reasoning": "string",
-                "actions_required": "list of strings",
+                "actions_required": "list[str]",
             },
         }
 
-     
-    # FALLBACK LOGIC (NO LLM)
-     
+    
+    # FALLBACK (NO LLM)
+    
 
     def _fallback_resolution(
         self,
@@ -151,25 +161,29 @@ class ResolverAgent:
         failed_checks = self._collect_failed_checks(validation_result)
         confidence = self._fallback_confidence(failed_checks)
 
+        resolution = {
+            "violation_type": "DOCUMENTATION_GAP",
+            "recommended_action": "REQUEST_CLARIFICATION",
+            "confidence": confidence,
+            "missing_fields": [
+                c["checkpoint"] for c in failed_checks
+            ],
+            "reasoning": self._fallback_reasoning(failed_checks),
+            "actions_required": self._fallback_actions(failed_checks),
+        }
+
         return {
             "invoice_id": invoice_id,
             "invoice_number": invoice_number,
-            "resolution": {
-                "violation_type": "DOCUMENTATION_GAP",
-                "recommended_action": "REQUEST_CLARIFICATION",
-                "confidence": confidence,
-                "missing_fields": [
-                    c["checkpoint"] for c in failed_checks
-                ],
-                "reasoning": self._fallback_reasoning(failed_checks),
-                "actions_required": self._fallback_actions(failed_checks),
-            },
+            "route": "HUMAN_REVIEW",
+            "confidence": confidence,
+            "resolution": resolution,
             "error": error,
         }
 
-     
+    
     # HELPERS
-     
+    
 
     def _collect_failed_checks(
         self, validation_result: Dict
@@ -186,9 +200,32 @@ class ResolverAgent:
             if c["status"] in ("FAIL", "REVIEW")
         ]
 
+    def _normalize_confidence(self, value: Any) -> float:
+        try:
+            value = float(value)
+        except Exception:
+            return self.MIN_CONFIDENCE
+
+        value = max(self.MIN_CONFIDENCE, min(self.MAX_CONFIDENCE, value))
+        return round(value, 2)
+
+    def _decide_route(self, resolution: Dict, confidence: float) -> str:
+        """
+        Final routing authority.
+        """
+        if confidence < self.HUMAN_REVIEW_THRESHOLD:
+            return "HUMAN_REVIEW"
+
+        action = resolution.get("recommended_action")
+
+        if action in ("ESCALATE", "REJECT"):
+            return "HUMAN_REVIEW"
+
+        return "ACCEPT"
+
     def _fallback_confidence(self, failed_checks: List[Dict]) -> float:
         reduction = 0.2 * len(failed_checks)
-        return max(self.MIN_CONFIDENCE, 1.0 - reduction)
+        return self._normalize_confidence(1.0 - reduction)
 
     def _fallback_reasoning(self, failed_checks: List[Dict]) -> str:
         reasons = [
@@ -212,14 +249,21 @@ class ResolverAgent:
 
         return list(actions) or ["Request manual review"]
 
-    def _auto_accept(self, invoice_id: str, invoice_number: str) -> Dict[str, Any]:
+    def _auto_accept(
+        self, invoice_id: str, invoice_number: str
+    ) -> Dict[str, Any]:
+
+        confidence = self.MAX_CONFIDENCE
+
         return {
             "invoice_id": invoice_id,
             "invoice_number": invoice_number,
+            "route": "ACCEPT",
+            "confidence": confidence,
             "resolution": {
                 "violation_type": "NONE",
                 "recommended_action": "ACCEPT",
-                "confidence": 1.0,
+                "confidence": confidence,
                 "missing_fields": [],
                 "reasoning": "No compliance issues detected.",
                 "actions_required": [],
@@ -231,12 +275,3 @@ class ResolverAgent:
         if not isinstance(parsed, dict):
             raise ValueError("LLM output is not a valid JSON object")
         return parsed
-
-    def _clamp_confidence(self, value: Any) -> float:
-        try:
-            return max(
-                self.MIN_CONFIDENCE,
-                min(self.MAX_CONFIDENCE, float(value)),
-            )
-        except Exception:
-            return self.MIN_CONFIDENCE
