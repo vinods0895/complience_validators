@@ -271,7 +271,24 @@ class ResolverAgent:
         }
 
     def _safe_json(self, text: str) -> Dict[str, Any]:
-        parsed = json.loads(text)
-        if not isinstance(parsed, dict):
-            raise ValueError("LLM output is not a valid JSON object")
-        return parsed
+        if not text or not text.strip():
+            raise ValueError("Empty response from LLM")
+
+        # Try direct JSON parse
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+
+        # Try to extract JSON block if LLM wrapped it in text or markdown
+        start = text.find("{")
+        end = text.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            try:
+                return json.loads(text[start:end+1])
+            except json.JSONDecodeError:
+                pass
+
+        # If still failing, raise clean error
+        raise ValueError(f"LLM returned non-JSON output: {text[:200]}...")
+

@@ -40,42 +40,40 @@ def stateful_node(state: ComplianceState, stateful_engine: Any) -> ComplianceSta
   
 # RESOLVER NODE (LLM = REASONING ONLY)
   
-
 def resolver_node(state: ComplianceState, resolver: Any) -> ComplianceState:
     final_status = state.validation.get("summary", {}).get("final_status")
 
     if final_status in ("FAIL", "REVIEW"):
-        state.resolution = resolver.resolve(
+        result = resolver.resolve(
             invoice_id=state.invoice.get("invoice_id"),
             invoice_number=state.invoice.get("invoice_number"),
             validation_result=state.validation,
         )
+
+        # ✅ Extract only inner resolution payload
+        state.resolution = result.get("resolution", {})
+        state.confidence = result.get("confidence", 0.3)
+
     else:
         state.resolution = {
-            "resolution": {
-                "violation_type": "NONE",
-                "recommended_action": "ACCEPT",
-                "confidence": 1.0,
-            }
+            "violation_type": "NONE",
+            "recommended_action": "ACCEPT",
+            "confidence": 1.0,
+            "missing_fields": [],
+            "reasoning": "No compliance issues detected.",
+            "actions_required": [],
         }
+        state.confidence = 1.0
 
-    res = state.resolution.get("resolution", {})
-    state.confidence = res.get("confidence") or 0.3
-
-    # 🚦 ROUTING IS CONTROLLED BY VALIDATOR (NOT LLM)
+    # 🚦 ROUTING (you control this — not LLM)
     if final_status == "FAIL":
         state.route = "REJECT"
-
     elif final_status == "REVIEW":
         state.route = "REQUEST_CLARIFICATION"
-
     else:
         state.route = "ACCEPT"
 
     return state
-
-
-  
 # ROUTING DECISION FOR LANGGRAPH
   
 

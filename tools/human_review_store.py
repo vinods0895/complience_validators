@@ -21,8 +21,17 @@ class HumanReviewStore:
             self._write([])
 
     def _read(self) -> List[Dict]:
-        with open(self.path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            if (not self.path.exists()) or self.path.stat().st_size == 0:
+                return []
+        except OSError:
+            return []
+
+        try:
+            with open(self.path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            return []
 
     def _write(self, records: List[Dict]):
         with open(self.path, "w", encoding="utf-8") as f:
@@ -81,3 +90,43 @@ class HumanReviewStore:
                     self._write(records)
                     return True
             return False
+    
+    def list_reviews(
+    self,
+    status: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    limit: int = 10,
+    offset: int = 0,
+    ) -> List[Dict]:
+        with self._lock:
+            records = self._read()
+            filtered_records = records
+            if status:
+                filtered_records = [r for r in filtered_records if r["status"] == status]
+            if start_date:
+                filtered_records = [r for r in filtered_records if r["created_at"] >= start_date]
+            if end_date:
+                filtered_records = [r for r in filtered_records if r["created_at"] <= end_date]
+            return filtered_records[offset:offset+limit]
+        if start_date:
+            filtered_records = [
+                r for r in filtered_records if r.get("created_at", "") >= start_date
+            ]
+
+        if end_date:
+            filtered_records = [
+                r for r in filtered_records if r.get("created_at", "") <= end_date
+            ]
+
+        return filtered_records[offset: offset + limit]
+        
+    def get_review(self, review_id: str) -> Optional[Dict]:
+        with self._lock:
+            records = self._read()
+            for r in records:
+                if r["review_id"] == review_id:
+                    return r
+            return None
+
+
