@@ -79,13 +79,13 @@ HSN / SAC Validation-POST http://127.0.0.1:5000/api/gst/validate-hsn
 GST Rate Lookup-POST http://127.0.0.1:5000/api/gst/rate-schedule
 Company Policy Check-POST http://127.0.0.1:5000/api/policy/check
 
-Step 1: Run Agentic Pipeline
+Step 1: Run Agentic Pipeline :-
 uv run python main.py
 
-Step 2: Start FastAPI Backend
+Step 2: Start FastAPI Backend :-
 uv run uvicorn api.api:app --reload --port 8000
 
-Step 3: Start Gradio UI
+Step 3: Start Gradio UI :-
 uv run python ui/gradio_app.py
 
 ## 🧪 Why This Project Is Valuable
