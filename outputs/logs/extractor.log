@@ -269,3 +269,9 @@ total_amount
 2026-01-28 09:49:21,416 - ExtractorAgent - INFO - Extraction complete: 21 invoices
 2026-01-28 09:53:46,520 - ExtractorAgent - INFO - Starting extraction for data/invoices/test_invoices.json
 2026-01-28 09:53:46,522 - ExtractorAgent - INFO - Extraction complete: 21 invoices
+2026-02-04 13:02:01,638 - ExtractorAgent - INFO - Starting extraction for data/invoices/test_invoices.json
+2026-02-04 13:02:01,638 - ExtractorAgent - INFO - Extraction complete: 21 invoices
+2026-02-04 13:09:18,978 - ExtractorAgent - INFO - Starting extraction for data/invoices/test_invoices.json
+2026-02-04 13:09:18,982 - ExtractorAgent - INFO - Extraction complete: 21 invoices
+2026-02-04 13:14:02,602 - ExtractorAgent - INFO - Starting extraction for data/invoices/test_invoices.json
+2026-02-04 13:14:02,602 - ExtractorAgent - INFO - Extraction complete: 21 invoices

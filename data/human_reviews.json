@@ -1,4611 +1,7 @@
 [
   {
-    "review_id": "HR-2ebfbcc7",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Policy API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D7C482AE70>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:39:31.912823Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-72c21f65",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:44:50.944552Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-51ccebb9",
-    "invoice_id": "INV-2024-0013",
-    "invoice_number": "HSI/MH/2024/MED-445",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 90181990"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 89600.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:46:18.985309Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-b79360ed",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:47:45.202936Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-9df52acb",
-    "invoice_id": "INV-2024-0017",
-    "invoice_number": "ABC/BLR/24-25/0100",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 995421"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 3154000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:49:07.513129Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-6aa09336",
-    "invoice_id": "INV-2024-0018",
-    "invoice_number": "CREDIT-TS-2024-001",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "subtotal cannot be negative"
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 2537000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:50:21.827129Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-f8536cca",
-    "invoice_id": "INV-2024-0019",
-    "invoice_number": "INV/EXP/2024/0055",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 0.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:51:51.038632Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-23a57832",
-    "invoice_id": "INV-2024-0847",
-    "invoice_number": "GL/SPECIAL/2024/847",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 996721"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "GST rate not found for 996721"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 486250.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T07:53:53.133159Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-5669dae5",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T09:42:04.547542Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-97a4370c",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      },
-      "error": "Extra data: line 6 column 1 (char 137)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T09:43:26.178980Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-5d43371c",
-    "invoice_id": "INV-2024-0017",
-    "invoice_number": "ABC/BLR/24-25/0100",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 995421"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0
-      },
-      "error": "Expecting property name enclosed in double quotes: line 2 column 13 (char 14)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 3154000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T09:45:08.793993Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-32164877",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Policy API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5DC40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T10:22:23.678634Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-2975015e",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GST API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5F470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/vendor/lookup (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5EB40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "HSN API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83D904D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GST rate API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5ECC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Policy API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5EE70>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0016",
-      "invoice_number": "SC/NOI/2024/790",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T10:25:57.362513Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-cf4cdb0c",
-    "invoice_id": "INV-2024-0018",
-    "invoice_number": "CREDIT-TS-2024-001",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GST API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-gstin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83DED4C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/vendor/lookup (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83CCB560>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "subtotal cannot be negative"
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "HSN API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/validate-hsn (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5C4A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GST rate API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/gst/rate-schedule (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83E5C980>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Policy API error: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/policy/check (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029B83DEE750>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0018",
-      "invoice_number": "CREDIT-TS-2024-001",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 2537000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-21T10:28:19.847870Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-e39fb830",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "Unable to determine reason automatically."
-      }
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:12:08.803394Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-6da17871",
-    "invoice_id": "INV-2024-0013",
-    "invoice_number": "HSI/MH/2024/MED-445",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 90181990"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0013",
-      "invoice_number": "HSI/MH/2024/MED-445",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 89600.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:14:11.364880Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-08f3dfe1",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D3440>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:28.003198Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-91c111e0",
-    "invoice_id": "INV-2024-0013",
-    "invoice_number": "HSI/MH/2024/MED-445",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 90181990"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0013",
-      "invoice_number": "HSI/MH/2024/MED-445",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D3AD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 89600.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:32.544778Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-b7f7afac",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0016",
-      "invoice_number": "SC/NOI/2024/790",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D2F90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:36.821763Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-0beebded",
-    "invoice_id": "INV-2024-0017",
-    "invoice_number": "ABC/BLR/24-25/0100",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 995421"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0017",
-      "invoice_number": "ABC/BLR/24-25/0100",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D3DD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 3154000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:40.957467Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-b0caf46e",
-    "invoice_id": "INV-2024-0018",
-    "invoice_number": "CREDIT-TS-2024-001",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "subtotal cannot be negative"
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0018",
-      "invoice_number": "CREDIT-TS-2024-001",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D1580>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 2537000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:45.075502Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-7d48a92a",
-    "invoice_id": "INV-2024-0019",
-    "invoice_number": "INV/EXP/2024/0055",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0019",
-      "invoice_number": "INV/EXP/2024/0055",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D2510>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 0.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:49.195167Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-4caa6c97",
-    "invoice_id": "INV-2024-0847",
-    "invoice_number": "GL/SPECIAL/2024/847",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.0,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 996721"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "GST rate not found for 996721"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0847",
-      "invoice_number": "GL/SPECIAL/2024/847",
-      "resolution": {
-        "violation_type": "UNKNOWN",
-        "recommended_action": "ESCALATE",
-        "confidence": 0.0,
-        "reasoning": "LLM unavailable. Manual review required."
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000157623D3020>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 486250.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:22:53.336450Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-30b7b644",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN active",
-          "Vendor registry",
-          "Subtotal consistency",
-          "Tax calculation",
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:46:26.504165Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-fae841d4",
-    "invoice_id": "INV-2024-0013",
-    "invoice_number": "HSI/MH/2024/MED-445",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 90181990"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0013",
-      "invoice_number": "HSI/MH/2024/MED-445",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 89600.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:48:28.992464Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-996b650a",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0016",
-      "invoice_number": "SC/NOI/2024/790",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN format",
-          "GSTIN active",
-          "Vendor registry",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN format (HIGH): Invalid GSTIN format; GSTIN active (HIGH): Invalid GSTIN format; Vendor registry (HIGH): Vendor not found in registry; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:50:31.243925Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-6ba96bb1",
-    "invoice_id": "INV-2024-0017",
-    "invoice_number": "ABC/BLR/24-25/0100",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 995421"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0017",
-      "invoice_number": "ABC/BLR/24-25/0100",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 995421; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 3154000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:51:40.880998Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-80d35691",
-    "invoice_id": "INV-2024-0018",
-    "invoice_number": "CREDIT-TS-2024-001",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "subtotal cannot be negative"
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0018",
-      "invoice_number": "CREDIT-TS-2024-001",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "Negative values",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: Negative values (HIGH): subtotal cannot be negative; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 2537000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:53:42.962371Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-1bc77672",
-    "invoice_id": "INV-2024-0019",
-    "invoice_number": "INV/EXP/2024/0055",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0019",
-      "invoice_number": "INV/EXP/2024/0055",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "Vendor registry",
-          "Subtotal consistency",
-          "Invoice total",
-          "TDS section",
-          "Company policy"
-        ],
-        "reasoning": "Issues detected: Vendor registry (HIGH): Vendor not found in registry; Subtotal consistency (MEDIUM): Subtotal missing; Invoice total (MEDIUM): Total missing; TDS section (MEDIUM): TDS section not provided; Company policy (MEDIUM): Total missing",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 0.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:55:45.128745Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-156ded76",
-    "invoice_id": "INV-2024-0847",
-    "invoice_number": "GL/SPECIAL/2024/847",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3999999999999999,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 996721"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "GST rate not found for 996721"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0847",
-      "invoice_number": "GL/SPECIAL/2024/847",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3999999999999999,
-        "missing_fields": [
-          "HSN/SAC",
-          "GST rate",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 996721; GST rate (HIGH): GST rate not found for 996721; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 486250.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T06:57:47.301388Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-fcc04695",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN active",
-          "Vendor registry",
-          "Subtotal consistency",
-          "Tax calculation",
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:28:00.236105Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-6016047a",
-    "invoice_id": "INV-2024-0013",
-    "invoice_number": "HSI/MH/2024/MED-445",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 90181990"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0013",
-      "invoice_number": "HSI/MH/2024/MED-445",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 89600.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:33:48.888572Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-9c95e8c5",
-    "invoice_id": "INV-2024-0016",
-    "invoice_number": "SC/NOI/2024/790",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid GSTIN format"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0016",
-      "invoice_number": "SC/NOI/2024/790",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN format",
-          "GSTIN active",
-          "Vendor registry",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN format (HIGH): Invalid GSTIN format; GSTIN active (HIGH): Invalid GSTIN format; Vendor registry (HIGH): Vendor not found in registry; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 177000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:37:51.423577Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-7307d243",
-    "invoice_id": "INV-2024-0017",
-    "invoice_number": "ABC/BLR/24-25/0100",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 995421"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0017",
-      "invoice_number": "ABC/BLR/24-25/0100",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 995421; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 3154000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:39:19.733086Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-78faf27b",
-    "invoice_id": "INV-2024-0018",
-    "invoice_number": "CREDIT-TS-2024-001",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "subtotal cannot be negative"
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0018",
-      "invoice_number": "CREDIT-TS-2024-001",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "Negative values",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: Negative values (HIGH): subtotal cannot be negative; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": true
-      },
-      "evidence": {
-        "vendor_fy_total": 2537000.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:40:40.634248Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-b774fc5d",
-    "invoice_id": "INV-2024-0019",
-    "invoice_number": "INV/EXP/2024/0055",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Vendor not found in registry"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Total missing"
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0019",
-      "invoice_number": "INV/EXP/2024/0055",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "Vendor registry",
-          "Subtotal consistency",
-          "Invoice total",
-          "TDS section",
-          "Company policy"
-        ],
-        "reasoning": "Issues detected: Vendor registry (HIGH): Vendor not found in registry; Subtotal consistency (MEDIUM): Subtotal missing; Invoice total (MEDIUM): Total missing; TDS section (MEDIUM): TDS section not provided; Company policy (MEDIUM): Total missing",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 0.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:42:14.153603Z",
-    "human_decision": null
-  },
-  {
-    "review_id": "HR-7a6cfea1",
-    "invoice_id": "INV-2024-0847",
-    "invoice_number": "GL/SPECIAL/2024/847",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3999999999999999,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Invalid HSN 996721"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "GST rate not found for 996721"
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0847",
-      "invoice_number": "GL/SPECIAL/2024/847",
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3999999999999999,
-        "missing_fields": [
-          "HSN/SAC",
-          "GST rate",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 996721; GST rate (HIGH): GST rate not found for 996721; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {
-        "vendor_fy_total": 486250.0,
-        "tds_threshold": 1000000.0
-      }
-    },
-    "status": "PENDING",
-    "created_at": "2026-01-27T07:43:48.342450Z",
-    "human_decision": null
-  },
-  {
     "schema_version": "1.0",
-    "review_id": "HR-8dc1d203",
+    "review_id": "HR-36d631c9",
     "invoice_id": "INV-2024-0007",
     "invoice_number": "OTP/2024/INV-0023",
     "route": "HUMAN_REVIEW",
@@ -4702,28 +98,37 @@
       ]
     },
     "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "route": "HUMAN_REVIEW",
+      "violation_type": [
+        "HARD_COMPLIANCE",
+        "SOFT_COMPLIANCE",
+        "DOCUMENTATION_GAP"
+      ],
+      "recommended_action": [
+        "REQUEST_CLARIFICATION",
+        "ESCALATE",
+        "REJECT"
+      ],
       "confidence": 0.3,
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN active",
-          "Vendor registry",
-          "Subtotal consistency",
-          "Tax calculation",
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "missing_fields": [
+        "GSTIN Active",
+        "Vendor GSTIN Missing",
+        "Subtotal Consistency Missing",
+        "Tax Calculation Issue",
+        "HSN/SAC Missing at Line 0",
+        "TDS Section Not Provided"
+      ],
+      "reasoning": [
+        "GSTIN is mandatory and missing causes full validation failure.",
+        "Vendors may not provide their GSTIN, affecting supplier alignment.",
+        "Missing Subtotal affects accuracy and tax calculation accuracy.",
+        "HSN/SAC data is needed for identification purposes.",
+        "TDS section missing indicates incomplete data capture."
+      ],
+      "actions_required": [
+        "Request clarification from vendor/supplier about missing GSTIN.",
+        "E Scalar the issue if it persists.",
+        "Reject invoice due to critical missing fields."
+      ]
     },
     "stateful_snapshot": {
       "stateful_flags": {
@@ -4735,147 +140,12 @@
     },
     "status": "PENDING",
     "human_decision": null,
-    "created_at": "2026-01-28T04:30:22.532369Z",
+    "created_at": "2026-02-04T07:50:39.024929Z",
     "updated_at": null
   },
   {
     "schema_version": "1.0",
-    "review_id": "HR-be659d58",
-    "invoice_id": "INV-2024-0007",
-    "invoice_number": "OTP/2024/INV-0023",
-    "route": "HUMAN_REVIEW",
-    "confidence": 0.3,
-    "validation_snapshot": {
-      "summary": {
-        "final_status": "FAIL"
-      },
-      "checks": [
-        {
-          "checkpoint": "Invoice number present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Invoice date present",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN format",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "GSTIN active",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "GSTIN missing"
-        },
-        {
-          "checkpoint": "Vendor registry",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Vendor GSTIN missing"
-        },
-        {
-          "checkpoint": "Negative values",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Line item arithmetic",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "Subtotal consistency",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Subtotal missing"
-        },
-        {
-          "checkpoint": "Tax calculation",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "Tax missing"
-        },
-        {
-          "checkpoint": "Invoice total",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "HSN/SAC",
-          "status": "FAIL",
-          "severity": "HIGH",
-          "details": "Missing HSN at line 0"
-        },
-        {
-          "checkpoint": "GST rate",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        },
-        {
-          "checkpoint": "TDS section",
-          "status": "REVIEW",
-          "severity": "MEDIUM",
-          "details": "TDS section not provided"
-        },
-        {
-          "checkpoint": "Company policy",
-          "status": "PASS",
-          "severity": "LOW",
-          "details": ""
-        }
-      ]
-    },
-    "resolution_snapshot": {
-      "invoice_id": "INV-2024-0007",
-      "invoice_number": "OTP/2024/INV-0023",
-      "route": "HUMAN_REVIEW",
-      "confidence": 0.3,
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN active",
-          "Vendor registry",
-          "Subtotal consistency",
-          "Tax calculation",
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN active (MEDIUM): GSTIN missing; Vendor registry (MEDIUM): Vendor GSTIN missing; Subtotal consistency (MEDIUM): Subtotal missing; Tax calculation (MEDIUM): Tax missing; HSN/SAC (HIGH): Missing HSN at line 0; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    "stateful_snapshot": {
-      "stateful_flags": {
-        "duplicate_invoice": false,
-        "sequence_issue": false,
-        "tds_threshold_crossed": false
-      },
-      "evidence": {}
-    },
-    "status": "PENDING",
-    "human_decision": null,
-    "created_at": "2026-01-28T04:43:07.175645Z",
-    "updated_at": null
-  },
-  {
-    "schema_version": "1.0",
-    "review_id": "HR-1d02dc78",
+    "review_id": "HR-3f9f1313",
     "invoice_id": "INV-2024-0013",
     "invoice_number": "HSI/MH/2024/MED-445",
     "route": "HUMAN_REVIEW",
@@ -4972,24 +242,17 @@
       ]
     },
     "resolution_snapshot": {
-      "invoice_id": "INV-2024-0013",
-      "invoice_number": "HSI/MH/2024/MED-445",
-      "route": "HUMAN_REVIEW",
+      "violation_type": "DOCUMENTATION_GAP",
+      "recommended_action": "REQUEST_CLARIFICATION",
       "confidence": 0.6,
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "missing_fields": [
+        "HSN/SAC",
+        "TDS section"
+      ],
+      "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 90181990; TDS section (MEDIUM): TDS section not provided",
+      "actions_required": [
+        "Request manual review"
+      ]
     },
     "stateful_snapshot": {
       "stateful_flags": {
@@ -5004,12 +267,12 @@
     },
     "status": "PENDING",
     "human_decision": null,
-    "created_at": "2026-01-28T04:48:22.459997Z",
+    "created_at": "2026-02-04T07:56:34.816322Z",
     "updated_at": null
   },
   {
     "schema_version": "1.0",
-    "review_id": "HR-da784d10",
+    "review_id": "HR-39ed0045",
     "invoice_id": "INV-2024-0016",
     "invoice_number": "SC/NOI/2024/790",
     "route": "HUMAN_REVIEW",
@@ -5106,26 +369,35 @@
       ]
     },
     "resolution_snapshot": {
-      "invoice_id": "INV-2024-0016",
-      "invoice_number": "SC/NOI/2024/790",
-      "route": "HUMAN_REVIEW",
+      "violation_type": [
+        "HARD_COMPLIANCE",
+        "HARD_COMPLIANCE",
+        "DOCUMENTATION_GAP",
+        "SOFT_COMPLIANCE"
+      ],
+      "recommended_action": [
+        "ACCEPT",
+        "REQUEST_CLARIFICATION",
+        "ESCALATE",
+        "REJECT"
+      ],
       "confidence": 0.3,
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.3,
-        "missing_fields": [
-          "GSTIN format",
-          "GSTIN active",
-          "Vendor registry",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: GSTIN format (HIGH): Invalid GSTIN format; GSTIN active (HIGH): Invalid GSTIN format; Vendor registry (HIGH): Vendor not found in registry; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Verify supplier GSTIN details"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "missing_fields": [
+        "Invoice ID: INV-2024-0016",
+        "Invoice number: SC/NOI/2024/790"
+      ],
+      "reasoning": [
+        "The GSTIN format is invalid, which violates the GSTIN standard.",
+        "The GSTIN may be active but could indicate a registration issue.",
+        "The vendor registry information might have been misplaced or removed.",
+        "The TDS section information is missing and needs to be provided."
+      ],
+      "actions_required": [
+        "Verify GSTIN format validity and correctness",
+        "Confirm GSTIN status as active if applicable",
+        "Recall or re-establish any previously removed vendors in the registry",
+        "Provide accurate TDS section data"
+      ]
     },
     "stateful_snapshot": {
       "stateful_flags": {
@@ -5140,16 +412,16 @@
     },
     "status": "PENDING",
     "human_decision": null,
-    "created_at": "2026-01-28T04:51:33.105327Z",
+    "created_at": "2026-02-04T08:00:48.871546Z",
     "updated_at": null
   },
   {
     "schema_version": "1.0",
-    "review_id": "HR-317dc55a",
+    "review_id": "HR-33433d79",
     "invoice_id": "INV-2024-0017",
     "invoice_number": "ABC/BLR/24-25/0100",
     "route": "HUMAN_REVIEW",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "validation_snapshot": {
       "summary": {
         "final_status": "FAIL"
@@ -5242,24 +514,29 @@
       ]
     },
     "resolution_snapshot": {
-      "invoice_id": "INV-2024-0017",
-      "invoice_number": "ABC/BLR/24-25/0100",
-      "route": "HUMAN_REVIEW",
-      "confidence": 0.6,
-      "resolution": {
-        "violation_type": "DOCUMENTATION_GAP",
-        "recommended_action": "REQUEST_CLARIFICATION",
-        "confidence": 0.6,
-        "missing_fields": [
-          "HSN/SAC",
-          "TDS section"
-        ],
-        "reasoning": "Issues detected: HSN/SAC (HIGH): Invalid HSN 995421; TDS section (MEDIUM): TDS section not provided",
-        "actions_required": [
-          "Request manual review"
-        ]
-      },
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "violation_type": [
+        "HSN_COMPLIANCE",
+        "TDS_SECTION_COMPLIANCE",
+        "DOCUMENTATION_GAP"
+      ],
+      "recommended_action": [
+        "ESCALATE",
+        "REVIEW TDS SECTION",
+        "REJECT"
+      ],
+      "confidence": 0.9,
+      "missing_fields": [
+        "HSN",
+        "TDS SECTION"
+      ],
+      "reasoning": [
+        "HSN/SAC is required for GST transactions, and its invalidation directly impacts the integrity of tax calculations.",
+        "TDS section is required in some cases but not provided, leading to incomplete compliance."
+      ],
+      "actions_required": [
+        "Update HSN",
+        "Review TDS SECTION"
+      ]
     },
     "stateful_snapshot": {
       "stateful_flags": {
@@ -5274,7 +551,442 @@
     },
     "status": "PENDING",
     "human_decision": null,
-    "created_at": "2026-01-28T04:52:43.585452Z",
+    "created_at": "2026-02-04T08:02:21.221800Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-249522bf",
+    "invoice_id": "INV-2024-0018",
+    "invoice_number": "CREDIT-TS-2024-001",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.5,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "subtotal cannot be negative"
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "violation_type": [
+        "HARD_COMPLIANCE"
+      ],
+      "recommended_action": [
+        "ESCALATE"
+      ],
+      "confidence": 0.5,
+      "missing_fields": [
+        "TDS SECTION"
+      ],
+      "reasoning": [
+        "Negative subtotal values indicate data integrity issues.",
+        "Missing TDS section likely affects system processing accuracy."
+      ],
+      "actions_required": [
+        "Request clarification on TDS section"
+      ]
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": true
+      },
+      "evidence": {
+        "vendor_fy_total": 2537000.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-02-04T08:03:21.633483Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-731f32fc",
+    "invoice_id": "INV-2024-0019",
+    "invoice_number": "INV/EXP/2024/0055",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.4,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Vendor not found in registry"
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Subtotal missing"
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Total missing"
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "Total missing"
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "violation_type": [
+        "HARD_COMPLIANCE",
+        "SOFT_COMPLIANCE",
+        "DOCUMENTATION_GAP"
+      ],
+      "recommended_action": [
+        "ESCALE",
+        "REQUEST_CLARIFICATION",
+        "REJECT"
+      ],
+      "confidence": 0.4,
+      "missing_fields": [
+        "Vendor registry",
+        "Subtotal consistency",
+        "Invoice total",
+        "TDS section",
+        "Company policy"
+      ],
+      "reasoning": [
+        "The 'Vendor registry' fails because the vendor is not found, which affects the calculation of totals and subtotals.",
+        "The 'Subtotal consistency' failure indicates that a subtotal is missing, impacting the overall accuracy of the invoice.",
+        "The 'Invoice total' failure suggests that the total is not provided, leading to incomplete calculations.",
+        "The 'TDS section' violation means the TDS information is missing, which is crucial for compliance with GST.",
+        "The 'Company policy' failure indicates that the total calculation method is missing, potentially violating company standards."
+      ],
+      "actions_required": [
+        "Check vendor details to obtain accurate information if possible.",
+        "Add missing TDS data if necessary to complete the sections.",
+        "Review and implement comprehensive company policies for total calculations as per compliance requirements."
+      ]
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 0.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-02-04T08:04:43.726415Z",
+    "updated_at": null
+  },
+  {
+    "schema_version": "1.0",
+    "review_id": "HR-650be0ed",
+    "invoice_id": "INV-2024-0847",
+    "invoice_number": "GL/SPECIAL/2024/847",
+    "route": "HUMAN_REVIEW",
+    "confidence": 0.3,
+    "validation_snapshot": {
+      "summary": {
+        "final_status": "FAIL"
+      },
+      "checks": [
+        {
+          "checkpoint": "Invoice number present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice date present",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN format",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "GSTIN active",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Vendor registry",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Negative values",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Line item arithmetic",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Subtotal consistency",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Tax calculation",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "Invoice total",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        },
+        {
+          "checkpoint": "HSN/SAC",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "Invalid HSN 996721"
+        },
+        {
+          "checkpoint": "GST rate",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "details": "GST rate not found for 996721"
+        },
+        {
+          "checkpoint": "TDS section",
+          "status": "REVIEW",
+          "severity": "MEDIUM",
+          "details": "TDS section not provided"
+        },
+        {
+          "checkpoint": "Company policy",
+          "status": "PASS",
+          "severity": "LOW",
+          "details": ""
+        }
+      ]
+    },
+    "resolution_snapshot": {
+      "violation_type": [
+        "HARD_COMPLIANCE",
+        "SOFT_COMPLIANCE",
+        "DOCUMENTATION_GAP"
+      ],
+      "recommended_action": [
+        "REQUEST_CLARIFICATION",
+        "ESCALATE",
+        "REJECT"
+      ],
+      "confidence": 0.3,
+      "missing_fields": [
+        {
+          "HSN": "996721",
+          "details": "HSN/SAC check indicates invalid HSN"
+        },
+        {
+          "GST rate": null,
+          "details": "GST rate not found for 996721"
+        }
+      ],
+      "reasoning": [
+        "The HS code (HSN) is a critical element of the GST calculation. An invalid or missing HSN would result in an unrepresentative tax value, which could lead to financial inaccuracies and potential legal issues.",
+        "The GST rate is essential for determining the tax amount on the invoice. The absence of the GST rate makes it difficult to accurately report taxes, which could affect compliance with GST rules.",
+        "Missing data regarding the TDS (Taxable Decimal Share) section indicates incomplete information about the taxes applied to goods and services. This omission can lead to underreporting or misreporting of taxes."
+      ],
+      "actions_required": [
+        {
+          "action": "request clarification",
+          "reason": "The HSN and GST rate must be accurately determined before tax calculations can proceed correctly."
+        },
+        {
+          "action": "escalate",
+          "reason": "Missing data about the TDS section is critical for accurate reporting, which could have serious implications for compliance."
+        },
+        {
+          "action": "reject",
+          "reason": "The violation indicates a lack of necessary information to accurately report on the invoice. This can lead to financial penalties and non-compliance with GST regulations."
+        }
+      ]
+    },
+    "stateful_snapshot": {
+      "stateful_flags": {
+        "duplicate_invoice": false,
+        "sequence_issue": false,
+        "tds_threshold_crossed": false
+      },
+      "evidence": {
+        "vendor_fy_total": 486250.0,
+        "tds_threshold": 1000000.0
+      }
+    },
+    "status": "PENDING",
+    "human_decision": null,
+    "created_at": "2026-02-04T08:06:19.199094Z",
     "updated_at": null
   }
 ]
